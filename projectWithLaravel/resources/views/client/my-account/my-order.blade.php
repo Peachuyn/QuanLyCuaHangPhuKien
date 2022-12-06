@@ -16,6 +16,7 @@
         </div>
     </div>
     {{-- Orders --}}
+    @foreach($donhangs as $donhang)
     <div class="wishlist-box-main py-4">
         <div class="container">
             <div class="row">
@@ -24,11 +25,11 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>#124589</th>
-                                    <th>Đặt ngày: 21/11/2022    </th>
+                                    <th>#{{$donhang->DonHangID}}</th>
+                                    <th>Thời gian đặt: {{$donhang->ThoiGianTao}}    </th>
                                     <th></th>
                                     <th></th>
-                                    <th>ĐÃ GIAO</th>
+                                    <th>@if($donhang->DonHang_TinhTrang==1)</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -81,6 +82,7 @@
             </div>
         </div>
     </div>
+    @endforeach
 
     <div class="wishlist-box-main py-4">
         <div class="container">
