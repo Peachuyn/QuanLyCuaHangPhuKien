@@ -17,6 +17,10 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
+    'khachhang' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Customer::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -40,6 +44,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        //Customer Authentication
+        'khachhang' => [
+            'driver' => 'session',
+            'provider' => 'khachhangs',
+        ],
+
     ],
 
     /*
@@ -63,6 +73,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'khachhangs' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Customer::class,
         ],
 
         // 'users' => [
@@ -89,6 +103,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'khachhang' => [
+            'provider' => 'khachhangs',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
