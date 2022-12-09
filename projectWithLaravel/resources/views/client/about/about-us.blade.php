@@ -6,38 +6,40 @@
         <div class="container">
             <div class="row">
 				<div class="col-lg-6">
-                    <div class="banner-frame"> <img class="img-fluid" src="/template/client/images/about-img.jpg" alt="" />
+                    {{-- <div class="banner-frame"> <img class="img-fluid" src="/template/client/images/about-img.jpg" alt="" /> --}}
+                        <div class="banner-frame"> <img class="img-fluid" src="/template/admin/images/Home_img/BG_Aboutus.png" alt="" />
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h2 class="noo-sh-title-top">We are <span>Freshshop</span></h2>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-                        voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-                        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-					<a class="btn hvr-hover" href="#">Read More</a>
+                    <br>
+                    <br>
+                    <h2 class="noo-sh-title-top">Hi! This is <span>Bellezza</span></h2>
+                    <br>
+                    <p>Bellezza được lấy cảm hứng từ “Beauty” nghĩa là cái đẹp. Thật vật, Bellezza không chỉ mang đến những sản phẩm đẹp từ cái nhìn, đẹp đến ý nghĩa và đẹp cả với môi trường. Giữa lấy cái đẹp, cái thuần tuý trong vô vạn bụi bẩn xoay vần.
+                    </p>
+                    <p>Với mũi nhọn là các sản phẩm tự thiết kế kết hợp với việc bảo vệ môi trường - một vấn đề mà ngày càng được các bạn trẻ quan tâm nhiều hơn. Tụi mình dùng các sản phẩm từ vải canva, hoặc các chất liệu có thể may thêu và tái sử dụng nhiều lần được để làm sản phẩm đặc trưng cho cửa hàng. Bên cạnh đó là các sản phẩm văn phòng dùng hằng ngày nhưng với các thiết kế mới lạ, độc đáo hơn so với sản phẩm truyền thống. </p>
+					{{-- <a class="btn hvr-hover" href="#">Read More</a> --}}
                 </div>
             </div>
             <div class="row my-5">
                 <div class="col-sm-6 col-lg-4">
                     <div class="service-block-inner">
-                        <h3>We are Trusted</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                        <h3>Sản phẩm tự thiết kế</h3>
+                        <p>Bellezza không chỉ mang đến những sản phẩm đẹp từ cái nhìn, đẹp đến ý nghĩa và đẹp cả với môi trường. </p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="service-block-inner">
-                        <h3>We are Professional</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                        <h3>Xu hướng</h3>
+                        <p>Bellezza đại diện cho xu hướng thời trang hiện đại thể hiện cá tính của người dùng và gắn liền với bảo vệ môi trường.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="service-block-inner">
-                        <h3>We are Expert</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                        <h3>Khác biệt</h3>
+                        <p>Phong cách luôn đổi mới từng ngày tạo được nét riêng ngay cả với những sản phẩm hằng ngày, quen thuộc trong đời sống. </p>
                     </div>
-                </div>
+                </div> 
             </div>
             <div class="row my-4">
                 <div class="col-12">
@@ -47,19 +49,10 @@
                     <div class="hover-team">
                         <div class="our-team"> <img src="/template/client/images/img-1.jpg" alt="" />
                             <div class="team-content">
-                                <h3 class="title">Williamson</h3> <span class="post">Web Developer</span> </div>
+                                <h3 class="title">Lê Thị Phương Duyên</h3> <span class="post">CFO - Chief Financial Officer</span> </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#" class="fab fa-facebook"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-twitter"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-google-plus"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-youtube"></a>
+                                    <a href="https://www.facebook.com/le.thanhnguyen.1044" class="fab fa-facebook"></a>
                                 </li>
                             </ul>
                             <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
@@ -73,19 +66,10 @@
                     <div class="hover-team">
                         <div class="our-team"> <img src="/template/client/images/img-2.jpg" alt="" />
                             <div class="team-content">
-                                <h3 class="title">Kristiana</h3> <span class="post">Web Developer</span> </div>
+                                <h3 class="title">Đào Thị Thu Uyên</h3> <span class="post">COO - Chief Operations Officer</span> </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#" class="fab fa-facebook"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-twitter"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-google-plus"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-youtube"></a>
+                                    <a href="https://www.facebook.com/peachuyn" class="fab fa-facebook"></a>
                                 </li>
                             </ul>
                             <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
@@ -99,19 +83,10 @@
                     <div class="hover-team">
                         <div class="our-team"> <img src="/template/client/images/img-3.jpg" alt="" />
                             <div class="team-content">
-                                <h3 class="title">Steve Thomas</h3> <span class="post">Web Developer</span> </div>
+                                <h3 class="title">Ma Thị Thu Hiền</h3> <span class="post">CCO - Chief Commercial Officer</span> </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#" class="fab fa-facebook"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-twitter"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-google-plus"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-youtube"></a>
+                                    <a href="https://www.facebook.com/glendaa.hinf/" class="fab fa-facebook"></a>
                                 </li>
                             </ul>
                             <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
@@ -123,21 +98,12 @@
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="hover-team">
-                        <div class="our-team"> <img src="/template/client/images/img-1.jpg" alt="" />
+                        <div class="our-team"> <img src="/template/client/images/img-4.jpg" alt="" />
                             <div class="team-content">
-                                <h3 class="title">Williamson</h3> <span class="post">Web Developer</span> </div>
+                                <h3 class="title">Huỳnh Yến Anh</h3> <span class="post">CMO - Chief Marketing Officer</span> </div>
                             <ul class="social">
                                 <li>
-                                    <a href="#" class="fab fa-facebook"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-twitter"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-google-plus"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="fab fa-youtube"></a>
+                                    <a href="https://www.facebook.com/ensdayyy.010702" class="fab fa-facebook"></a>
                                 </li>
                             </ul>
                             <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
