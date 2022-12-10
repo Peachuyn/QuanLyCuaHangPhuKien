@@ -19,7 +19,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="m-b-20"><strong>Welcome To <br> Bellezza</strong></h1>
-                        <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
+                        <p class="m-b-40">Tại Bellezza Stationery, chúng mình cung cấp các phụ kiện văn phòng phẩm, túi và balo canvas thêu <br> với hy vọng mang lại cho các bạn sản phẩm đẹp từ cái nhìn và đẹp cả với môi trường.
+                        </p>
                         <p><a class="btn hvr-hover" href="#">Shop New</a></p>
                     </div>
                 </div>
@@ -31,7 +32,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="m-b-20"><strong>Welcome To <br> Bellezza</strong></h1>
-                        <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
+                        <p class="m-b-40">Bellezza mong muốn mang đến cho khách hàng những trải nghiệm tốt nhất, hài lòng nhất cho từng sản phẩm <br> giúp khách hàng thể hiện được cá tính, chất riêng một cách riêng nhất, đặc biệt và “xinh đẹp” nhất.
+                        </p>
                         <p><a class="btn hvr-hover" href="#">Shop New</a></p>
                     </div>
                 </div>
@@ -43,7 +45,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="m-b-20"><strong>Welcome To <br> Bellezza</strong></h1>
-                        <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
+                        <p class="m-b-40">Nếu bạn cần tư vấn hãy để lại lời nhắn <br> chúng mình sẽ cố gắng phản hồi bạn sớm nhất có thể!
+                        </p>
                         <p><a class="btn hvr-hover" href="#">Shop New</a></p>
                     </div>
                 </div>
@@ -64,19 +67,19 @@
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="shop-cat-box">
                     <img class="img-fluid" src="/template/client/images/categories_img_01.png" alt="" />
-                    <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                    <a class="btn hvr-hover" href="#">TÚI VẢI CANVAS</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="shop-cat-box">
                     <img class="img-fluid" src="/template/client/images/categories_img_02.png" alt="" />
-                    <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                    <a class="btn hvr-hover" href="#">VĂN PHÒNG PHẨM</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="shop-cat-box">
                     <img class="img-fluid" src="/template/client/images/categories_img_03.png" alt="" />
-                    <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                    <a class="btn hvr-hover" href="#">ORDER</a>
                 </div>
             </div>
         </div>
@@ -89,12 +92,12 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="offer-box-products">
-                    <img class="img-fluid" src="/template/client/images/add-img-01.jpg" alt="" />
+                    <img class="img-fluid" src="/template/client/images/BG_Home1.png" alt="" />
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="offer-box-products">
-                    <img class="img-fluid" src="/template/client/images/add-img-02.jpg" alt="" />
+                    <img class="img-fluid" src="/template/client/images/BG_Home2.png" alt="" />
                 </div>
             </div>
         </div>
@@ -107,8 +110,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="title-all text-center">
-                    <h1>Fruits & Vegetables</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                    <h1>BE YOURSELF COLLECTION</h1>
+                    {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p> --}}
                 </div>
             </div>
         </div>
@@ -117,8 +120,8 @@
                 <div class="special-menu text-center">
                     <div class="button-group filter-button-group">
                         <button class="active" data-filter="*">All</button>
-                        <button data-filter=".top-featured">Top featured</button>
-                        <button data-filter=".best-seller">Best seller</button>
+                        <button data-filter=".top-featured">Túi vải canvas</button>
+                        <button data-filter=".best-seller">Văn phòng phẩm</button>
                     </div>
                 </div>
             </div>
@@ -129,9 +132,10 @@
                 <div class="products-single fix">
                     <div class="box-img-hover">
                         <div class="type-lb">
-                            <p class="sale">Sale</p>
+                            <p class="sale">VPP</p>
+                            {{-- <p class="sale">Sale</p> --}}
                         </div>
-                        <img src="/template/client/images/img-pro-01.jpg" class="img-fluid" alt="Image">
+                        <img src="/template/admin/images/SanPhamBellezza/ButChiCaRot4.png" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -152,7 +156,8 @@
                 <div class="products-single fix">
                     <div class="box-img-hover">
                         <div class="type-lb">
-                            <p class="new">New</p>
+                            <p class="new">Túi</p>
+                            {{-- <p class="new">New</p> --}}
                         </div>
                         <img src="/template/client/images/img-pro-02.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
@@ -175,7 +180,8 @@
                 <div class="products-single fix">
                     <div class="box-img-hover">
                         <div class="type-lb">
-                            <p class="sale">Sale</p>
+                            <p class="sale">Túi</p>
+                            {{-- <p class="sale">Sale</p> --}}
                         </div>
                         <img src="/template/client/images/img-pro-03.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
@@ -198,7 +204,8 @@
                 <div class="products-single fix">
                     <div class="box-img-hover">
                         <div class="type-lb">
-                            <p class="sale">Sale</p>
+                            <p class="sale">VPP</p>
+                            {{-- <p class="sale">Sale</p> --}}
                         </div>
                         <img src="/template/client/images/img-pro-04.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
@@ -227,8 +234,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="title-all text-center">
-                    <h1>latest blog</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                    <h1>Latest blog</h1>
+                    {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p> --}}
                 </div>
             </div>
         </div>

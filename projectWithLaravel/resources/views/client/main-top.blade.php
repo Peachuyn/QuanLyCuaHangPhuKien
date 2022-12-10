@@ -5,13 +5,14 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<div class="custom-select-box">
                         <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-							<option>¥ JPY</option>
-							<option>$ USD</option>
-							<option>€ EUR</option>
+							<option>VND</option>
+                            <option>Order</option>
+							{{-- <option>$ USD</option> --}}
+							{{-- <option>€ EUR</option> --}}
 						</select>
                     </div>
                     <div class="right-phone-box">
-                        <p>Call US :- <a href="#"> +11 900 800 100</a></p>
+                        <p>Call US :- <a href="#"> 058 955 9343</a></p>
                     </div>
                     <div class="our-link">
                         <ul>
@@ -22,12 +23,11 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-					<div class="login-box">
-						<select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
-							<option>Register Here</option>
-							<option>Sign In</option>
-						</select>
+					<div class="login-box" style="background:#af9ad5; text-align:center;">
+                        <a class="text-white" href="{{route('client.logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                        <form action="{{route('client.logout')}}" id="logout-form" method="post">@csrf</form>
 					</div>
+
                     <div class="text-slid-box">
                         <div id="offer-box" class="carouselTicker">
                             <ul class="offer-box">
@@ -74,28 +74,28 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                    <a class="navbar-brand" href="index.html"><img src="/template/client/images/logo.png" class="logo" alt=""></a>
+                    <a class="navbar-brand" href="/shop/home"><img src="/template/client/images/logo.png" class="logo" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('client.home')}}">Home</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{{route('client.about-us')}}">About Us</a></li>
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                             <ul class="dropdown-menu">
-								<li><a href="shop.html">Sidebar Shop</a></li>
-								<li><a href="shop-detail.html">Shop Detail</a></li>
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="my-account.html">My Account</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
+								<li><a href="{{route('client.all-product')}}">Sidebar Shop</a></li>
+								<li><a href="{{route('client.product-detail')}}">Shop Detail</a></li>
+                                <li><a href="{{route('client.cart')}}">Cart</a></li>
+                                <li><a href="{{route('client.checkout')}}">Checkout</a></li>
+                                <li><a href="{{route('client.my-account')}}">My Account</a></li>
+                                <li><a href="{{route('client.wishlist')}}">Wishlist</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('client.gallery')}}">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('client.contact-us')}}">Contact Us</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
