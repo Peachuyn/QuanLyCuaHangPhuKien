@@ -64,7 +64,8 @@
                 </div>
             </div>
         </div>
-        <!-- End Cart -->
+        <!-- End Cart brruhhhhhhh -->
+    
 @endsection
 
 @section('title')
