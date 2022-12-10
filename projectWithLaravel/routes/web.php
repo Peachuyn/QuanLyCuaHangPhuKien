@@ -97,5 +97,8 @@ Route::prefix('shop')->group(function () {
         Route::get('my-info', function () {
             return view('client.my-account.my-info');
         });
+        route::get('forget-pass', function(){
+            return view('client.my-account.forget-pass');
+        });
     });
 });
