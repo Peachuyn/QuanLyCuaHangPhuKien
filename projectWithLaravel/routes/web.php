@@ -109,5 +109,8 @@ Route::prefix('shop')->name('client.')->group(function () {
             Route::get('my-info', [ClientController::class, 'view'])->name('my-info');
             Route::post('my-info', [ClientController::class, 'edit']);
         });
+        route::get('forget-pass', function(){
+            return view('client.my-account.forget-pass');
+        });
     });
 });
