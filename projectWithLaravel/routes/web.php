@@ -6,7 +6,8 @@ use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Client\OrderController;
 use \App\Http\Controllers\Client\ClientController;
-
+use App\Http\Controllers\Client\WishlistController;
+use App\Http\Controllers\Client\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,9 +78,10 @@ Route::prefix('shop')->name('client.')->group(function () {
             return view('client.about.about-us');
         })->name('about-us');
 
-        Route::get('cart', function () {
-            return view('client.cart.cart');
-        })->name('cart');
+        // Route::get('cart', function () {
+        //     return view('client.cart.cart');
+        // })->name('cart');
+        Route::get('cart', [CartController::class, 'gh'])->name('cart');
 
         Route::get('checkout', function () {
             return view('client.cart.checkout');
@@ -97,9 +99,7 @@ Route::prefix('shop')->name('client.')->group(function () {
             return view('client.shop.shop-detail');
         })->name('product-detail');
 
-        Route::get('wishlist', function () {
-            return view('client.wishlist.wishlist');
-        })->name('wishlist');
+        Route::get('wishlist', [WishlistController::class, 'list'])->name('wishlist');
 
         Route::prefix('my-account')->group(function () {
             Route::get('/', function () {
@@ -109,7 +109,7 @@ Route::prefix('shop')->name('client.')->group(function () {
             Route::get('my-info', [ClientController::class, 'view'])->name('my-info');
             Route::post('my-info', [ClientController::class, 'edit']);
         });
-        route::get('forget-pass', function(){
+        route::get('forget-pass', function () {
             return view('client.my-account.forget-pass');
         });
     });
