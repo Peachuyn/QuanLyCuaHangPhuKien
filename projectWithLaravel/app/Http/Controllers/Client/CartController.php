@@ -24,6 +24,7 @@ class CartController extends Controller
                 ->first();
             $products = DB::table('giohang_chitiet')
                 ->join('sanpham', 'sanpham.SanPhamID', '=', 'giohang_chitiet.SanPhamID')
+                ->select('giohang_chitiet.*', 'sanpham.SanPhamTen', 'sanpham.HinhAnh', 'sanpham.Gia')
                 ->where('GioHangID', $giohangID->GioHangID)
                 ->get();
         } else {

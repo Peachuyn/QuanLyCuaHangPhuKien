@@ -115,6 +115,8 @@ Route::prefix('shop')->name('client.')->group(function () {
         Route::get('wishlist', [WishlistController::class, 'list'])->name('wishlist');
 
         Route::get('add_wishlist/{id}', [SearchController::class, 'add_wishlist'])->name('add_wishlist');
+        Route::get('del_wishlist/{id}', [SearchController::class, 'del_wishlist'])->name('del_wishlist');
+
 
         Route::prefix('my-account')->group(function () {
             Route::get('/', function () {

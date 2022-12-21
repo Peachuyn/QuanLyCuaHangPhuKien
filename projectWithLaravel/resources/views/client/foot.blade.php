@@ -89,6 +89,21 @@
             })
         }
 
+        function DelWishlist(id){
+            console.log(id);
+            $.ajax({
+                url:'/shop/del_wishlist/'+id,
+                type:'GET',
+                data: {
+                    'product_id' : id,
+                },
+                success: function(response){
+                    alert(response.status);
+                    
+                }
+            })
+        }
+
     </script>
 </body>
 

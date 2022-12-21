@@ -34,9 +34,11 @@
                                 <td class="price-pr">
                                     <p>{{$product->Gia}}</p>
                                 </td>
-                                <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
+                                <td class="quantity-box">
+                                    <p>{{$product->SoLuong}}</p>
+                                </td>
                                 <td class="total-pr">
-                                    <p>{{$product->Gia}}</p>
+                                    <p>{{$product->ThanhTien}}</p>
                                 </td>
                                 <td class="remove-pr">
                                     <a href="#">

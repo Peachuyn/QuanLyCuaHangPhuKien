@@ -36,10 +36,10 @@
                                 </td>
                                 <td class="quantity-box">In Stock</td>
                                 <td class="add-pr">
-                                    <a class="btn hvr-hover" href="#">Add to Cart</a>
+                                    <a class="btn hvr-hover" onclick="AddCart({{$product->SanPhamID}})" href="javascript:">Add to Cart</a>
                                 </td>
                                 <td class="remove-pr">
-                                    <a href="#">
+                                    <a onlick="DelWishlist({{$product->SanPhamID}})" href="javascript:">
                                         <i class="fas fa-times"></i>
                                     </a>
                                 </td>
