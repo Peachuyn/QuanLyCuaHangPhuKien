@@ -96,10 +96,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-    <!-- End Cart -->
+<!-- End Cart -->
 @endsection
 
 @section('title')
