@@ -3,7 +3,7 @@
         <!-- Brand Logo -->
         <a href="/admin" class="brand-link">
           <img src="/template/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-          <span class="brand-text font-weight-light">AdminLTE 3</span>
+          <span class="brand-text font-weight-light">Bellezza</span>
         </a>
 
         <!-- Sidebar -->
@@ -56,10 +56,27 @@
                       <p>Danh sách danh mục</p>
                     </a>
                   </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Nhà cung cấp
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="../../index3.html" class="nav-link">
+                    <a href="/admin/suppliers/add" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Dashboard v3</p>
+                      <p>Thêm nhà cung cấp</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/admin/suppliers/list" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Danh sách nhà cung cấp</p>
                     </a>
                   </li>
                 </ul>

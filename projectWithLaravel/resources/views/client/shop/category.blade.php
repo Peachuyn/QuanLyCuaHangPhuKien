@@ -1,7 +1,6 @@
 @extends('client.layout')
 
 @section('content')
-@include('admin/alert')
 
     <!-- Start Shop Page  -->
     <div class="shop-box-inner" id="content">
@@ -13,14 +12,11 @@
                             <div class="col-12 col-sm-8 text-center text-sm-left">
                                 <div class="toolbar-sorter-right">
                                     <span>Sort by </span>
-                                    <select onchange="location = this.value;" id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-									<option value="{{URL::current()}}" {{$url=='none'?'data-display=Select': ''}}>All</option>
-                                    <option value="{{URL::current()."?sort=newest"}}" {{$url=='newest'?'data-display=Select': ''}}>Newest</option>
-									<option value="{{URL::current()."?sort=price_desc"}}" {{$url=='price_desc'?'data-display=Select': ''}}>High Price → Low Price</option>
-									<option value="{{URL::current()."?sort=price_asc"}}" {{$url=='price_asc'?'data-display=Select': ''}}>Low Price → High Price</option>
+                                    <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
+									<option data-display="Select">All</option>
 								</select>
                                 </div>
-                                <p>Showing all {{$count}} results</p>
+                                <p>Showing all results</p>
                             </div>
                             <div class="col-12 col-sm-4 text-center text-sm-right">
                                 <ul class="nav nav-tabs ml-auto">
@@ -38,7 +34,8 @@
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
                                     <div class="row">
-                                        @foreach($products as $product)
+                                        @foreach($products as $product_collect)
+                                        @foreach($product_collect as $product)
                                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                             <div class="products-single fix">
                                                 <div class="box-img-hover">
@@ -48,11 +45,10 @@
                                                     <img src="{{'/template/admin/images/SanPhamBellezza/SanPham/'.$product->HinhAnh}}" class="img-fluid" alt="Image">
                                                     <div class="mask-icon">
                                                         <ul>
-                                                            <li><a href="product-detail/{{$product->SanPhamID}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                            <li><a href="javascript:" onclick="AddWishlist({{$product->SanPhamID}})" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                            <li><a href="/shop/product-detail/{{$product->SanPhamID}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                            <li><a onclick="AddWishlist({{$product->SanPhamID}})" href="javascript:" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                         </ul>
                                                         <a class="cart" onclick="AddCart({{$product->SanPhamID}})" href="javascript:">Add to Cart</a>
-
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
@@ -62,10 +58,12 @@
                                             </div>
                                         </div>
                                         @endforeach
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="list-view">
-                                    @foreach($products as $product)
+                                    @foreach($products as $product_collect)
+                                    @foreach($product_collect as $product)
                                     <div class="list-view-box">
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
@@ -77,8 +75,8 @@
                                                         <img src="{{'/template/admin/images/SanPhamBellezza/SanPham/'.$product->HinhAnh}}" class="img-fluid" alt="Image">
                                                         <div class="mask-icon">
                                                             <ul>
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                                <li><a href="javascript:" onclick="AddWishlist({{$product->SanPhamID}})" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                                <li><a href="/shop/product-detail/{{$product->SanPhamID}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                <li><a onclick="AddWishlist({{$product->SanPhamID}})" href="javascript:" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                             </ul>
 
                                                         </div>
@@ -96,6 +94,7 @@
                                         </div>
                                     </div>
                                     @endforeach
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -104,7 +103,7 @@
 				<div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
                     <div class="product-categori">
                         <div class="search-product">
-                            <form action="search">
+                            <form action="{{route('client.search')}}">
                                 <input class="form-control" placeholder="Search here..." id="search" name="query" type="text">
                                 <button type="submit"> <i class="fa fa-search"></i> </button>
                             </form>
@@ -114,6 +113,8 @@
                                 <h3>Categories</h3>
                             </div>
                             <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men" data-children=".sub-men">
+                                <a href="/shop/all-product" class="list-group-item list-group-item-action">Tất cả sản phẩm</a>
+                                
                                 @foreach($categories as $category)
                                 @if($category->parent_id==0)
                                     @foreach($categories as $category_c2)
@@ -155,13 +156,10 @@
 @endsection
 
 @section('title')
-<h2>Shop</h2>
+<h2>{{$categorypage->name}}</h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active">Shop</li>
                 </ul>
 @endsection
-
-
-
 
