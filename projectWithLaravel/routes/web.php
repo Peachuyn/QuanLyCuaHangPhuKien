@@ -60,7 +60,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::delete('destroy', [MenuController::class, 'destroy']);
         });
 
-
+        #NhanVien
         Route::prefix('nhanvien')->group(function () {
             Route::get('add', [NhanVienController::class, 'create']);
             Route::post('add', [NhanVienController::class, 'store']);
