@@ -4,9 +4,13 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\Users\LoginController;
 use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
+<<<<<<< Updated upstream
 use \App\Http\Controllers\Admin\SupplierController;
 use \App\Http\Controllers\Admin\OrderManagementController;
 
+=======
+use \App\Http\Controllers\Admin\NhanVienController;
+>>>>>>> Stashed changes
 
 use \App\Http\Controllers\Client\OrderController;
 use \App\Http\Controllers\Client\ClientController;
@@ -16,6 +20,8 @@ use App\Http\Controllers\Client\HomeController;
 
 use App\Http\Controllers\Client\WishlistController;
 use App\Http\Controllers\Client\CartController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +63,20 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::delete('destroy', [MenuController::class, 'destroy']);
         });
 
+<<<<<<< Updated upstream
+=======
+        #NhanVien
+        Route::prefix('nhanvien')->group(function () {
+            Route::get('add', [NhanVienController::class, 'create']);
+            // Route::post('add', [MenuController::class, 'store']);
+            Route::get('list', [NhanVienController::class, 'index']);
+            // Route::get('edit/{menu}', [MenuController::class, 'show']);
+            // Route::post('edit/{menu}', [MenuController::class, 'update']);
+
+            // Route::delete('destroy', [MenuController::class, 'destroy']);
+        });
+
+>>>>>>> Stashed changes
         #Product
         Route::prefix('products')->group(function () {
         });
