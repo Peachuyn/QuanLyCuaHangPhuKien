@@ -81,9 +81,7 @@
                   </li>
                 </ul>
               </li>
-<<<<<<< Updated upstream
-              
-=======
+
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -113,8 +111,6 @@
                   </li> --}}
                 </ul>
               </li>
->>>>>>> Stashed changes
-
             </ul>
           </nav>
           <!-- /.sidebar-menu -->
