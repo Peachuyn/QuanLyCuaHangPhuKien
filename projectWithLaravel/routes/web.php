@@ -61,15 +61,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
 
         #NhanVien
-        Route::prefix('nhanvien')->group(function () {
+        Route::prefix('nhanvien')->name('nhanvien.')->group(function () {
             Route::get('add', [NhanVienController::class, 'create']);
             Route::post('add', [NhanVienController::class, 'store']);
             // Route::post('add', [MenuController::class, 'store']);
-            Route::get('list', [NhanVienController::class, 'index']);
-            Route::get('edit/{menu}', [NhanVienController::class, 'show']);
-            Route::post('edit/{menu}', [NhanVienController::class, 'update']);
+            Route::get('list', [NhanVienController::class, 'index'])->name('list');
+            Route::get('edit/{nhanvien}', [NhanVienController::class, 'show']);
+            Route::post('edit/{nhanvien}', [NhanVienController::class, 'update']);
             Route::delete('destroy', [NhanVienController::class, 'destroy']);
-
+            Route::get('search', [NhanVienController::class, 'search']);
+        });
         #Product
         Route::prefix('products')->group(function () {
         });
@@ -146,9 +147,9 @@ Route::prefix('shop')->name('client.')->group(function () {
             Route::get('my-order', [OrderController::class, 'index'])->name('my-order');
             Route::get('my-info', [ClientController::class, 'view'])->name('my-info');
             Route::post('my-info', [ClientController::class, 'edit']);
-        });
+        }) ;
         route::get('forget-pass', function () {
             return view('client.my-account.forget-pass');
         });
-    });
+     });
 });

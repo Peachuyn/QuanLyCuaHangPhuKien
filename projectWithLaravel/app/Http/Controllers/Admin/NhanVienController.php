@@ -23,10 +23,6 @@ class NhanVienController extends Controller
             'diachi' => 'required',
         ]);
         $nhanvien = array();
-        // $suppliers['TenNhaCungCap'] = $request->name;
-        // $suppliers['SoDienThoai'] = $request->sdt;
-        // $suppliers['Email'] = $request->email;
-        // $suppliers['NganhHang'] = $request->nganhhang;
         $nhanvien['name'] = $request->name;
         $nhanvien['role'] = $request->chucvu;
         $nhanvien['password'] = $request->password;
@@ -59,7 +55,7 @@ class NhanVienController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $supplier = DB::table('users')->where('id', $id)->first();
+        $nhanvien = DB::table('users')->where('id', $id)->first();
         $request->validate([
             'name' => 'required',
             'chucvu' => 'required',
@@ -79,7 +75,7 @@ class NhanVienController extends Controller
         } catch (\Exception $err) {
             Session::flash('error', $err->getMessage());
         }
-        return redirect()->route('admin.supplier.list');
+        return redirect()->route('admin.nhanvien.list');
     }
     public function destroy(Request $request)
     {
@@ -100,5 +96,38 @@ class NhanVienController extends Controller
             'error' => true,
             'message' => 'Xóa không thành công',
         ]);
+    }
+    public function search(Request $request)
+    {
+        $data = $request->input('data');
+        $nhanvien = DB::table('users')
+            ->where('name', 'like', '%' . $data . '%')
+            ->orWhere('phoneNumber', 'like', '%' . $data . '%')
+            ->get();
+        $result = "";
+        foreach ($nhanvien as $nhanvien) {
+            $sex = $nhanvien -> gender == 1? 'Nữ':'Nam';
+            $chucvu = $nhanvie -> role == 1? 'Quản lý':'Nhân viên';
+
+            $result .=
+                "<tr>
+                <td>$nhanvien->id</td>
+                <td>$nhanvien->name</td>
+                <td>$chucvu</td>
+                <td>$sex</td>
+                <td>$nhanvien->phoneNumber</td>
+                <td>$nhanvien->email</td>
+                <td>$nhanvien->address</td>
+                <td>
+                    <a class='btn btn-primary btn-sm' href='/admin/nhanvien/edit/$nhanvien->id'>
+                        <i class='fas fa-edit'></i>
+                    </a>
+                    <a href='#' class='btn btn-danger btn-sm' onclick=\"removeRow('$nhanvien->id', '/admin/nhanvien/destroy')\">
+                        <i class='fas fa-trash'></i>
+                    </a>
+                </td>
+              </tr>";
+        };
+        return response()->json($result);
     }
 }

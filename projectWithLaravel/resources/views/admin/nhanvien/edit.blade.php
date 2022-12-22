@@ -7,10 +7,12 @@
         <label for="menu">Tên nhân viên</label>
         <input type="text" name="name" class="form-control" id="menu" placeholder="Nhập tên nhân viên" value="{{$nhanvien->name}}">
       </div>
-      <div class="form-group">
-        <label for="menu">Chức vụ</label>
-        <input type="text" name="chucvu" class="form-control" id="menu" placeholder="Nhập chức vụ" value="{{$nhanvien->role==1? 'Quản lý' : 'Nhân viên'}}">
-      </div>
+      <div>
+        <label for="menu" >Chức vụ</label>
+        <select class="form-control" name ="chucvu" >
+                            <option value ="1">Quản lý</option>
+                            <option value ="0" >Nhân viên</option>
+          </select>
       <div class="form-group">
         <label for="menu">Số điện thoại</label>
         <input type="text" name="sdt" class="form-control" id="menu" placeholder="Nhập số điện thoại" value="{{$nhanvien->phoneNumber}}">
