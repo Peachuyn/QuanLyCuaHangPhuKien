@@ -10,7 +10,7 @@
               <input type="text" name="table_search" class="form-control float-right search" placeholder="Search">
 
               <div class="input-group-append">
-                <button type="submit" class="btn btn-default" onclick="search('/admin/suppliers/search')">
+                <button type="submit" class="btn btn-default btn-search" onclick="search('/admin/suppliers/search')">
                   <i class="fas fa-search"></i>
                 </button>
               </div>
@@ -29,7 +29,6 @@
                 <th>Ngành hàng</th>
                 <th>Update</th>
                 <th style="width: 100px;">&nbsp;</th>
-
               </tr>
             </thead>
             <tbody>

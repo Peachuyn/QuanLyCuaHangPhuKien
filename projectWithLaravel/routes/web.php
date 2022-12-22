@@ -71,6 +71,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::post('edit/{supplier}', [SupplierController::class, 'update']);
 
             Route::delete('destroy', [SupplierController::class, 'destroy']);
+            Route::get('search', [SupplierController::class, 'search']);
         });
         #DonHang
         Route::prefix('orders')->name('order.')->group(function () {

@@ -101,4 +101,34 @@ class SupplierController extends Controller
             'message' => 'Xóa không thành công',
         ]);
     }
+
+    public function search(Request $request)
+    {
+        $data = $request->input('data');
+        $suppliers = DB::table('nhacungcap')
+            ->where('TenNhaCungCap', 'like', '%' . $data . '%')
+            ->orWhere('SoDienThoai', 'like', '%' . $data . '%')
+            ->get();
+        $result = "";
+        foreach ($suppliers as $supplier) {
+            $result .=
+                "<tr>
+                <td>$supplier->NhaCungCapID</td>
+                <td>$supplier->TenNhaCungCap</td>
+                <td>$supplier->SoDienThoai</td>
+                <td>$supplier->Email</td>
+                <td>$supplier->NganhHang</td>
+                <td>$supplier->ThoiGianTao</td>
+                <td>
+                    <a class='btn btn-primary btn-sm' href='/admin/suppliers/edit/$supplier->NhaCungCapID'>
+                        <i class='fas fa-edit'></i>
+                    </a>
+                    <a href='#' class='btn btn-danger btn-sm' onclick=\"removeRow('$supplier->NhaCungCapID', '/admin/suppliers/destroy')\">
+                        <i class='fas fa-trash'></i>
+                    </a>
+                </td>
+              </tr>";
+        };
+        return response()->json($result);
+    }
 }
