@@ -52,4 +52,32 @@ class CustomerController extends Controller
         }
         return redirect()->route('admin.customer.list');
     }
+
+    public function search(Request $request)
+    {
+        $data = $request->input('data');
+        $customers = DB::table('khachhang')
+            ->where('TenKhachHang', 'like', '%' . $data . '%')
+            ->orWhere('SoDienThoai', 'like', '%' . $data . '%')
+            ->get();
+        $result = "";
+        foreach ($customers as $customer) {
+            $sex = $customer->GioiTinh==0?'Nữ':'Nam';
+            $result .=
+                "<tr>
+                <td>$customer->id</td>
+                <td>$customer->TenKhachHang</td>
+                <td>$customer->SoDienThoai</td>
+                <td>$sex</td>
+                <td>$customer->email</td>
+                <td>$customer->DiaChi</td>
+                <td>
+                    <a class='btn btn-primary btn-sm' href='/admin/customer/edit/$customer->id'>
+                        <i class='fas fa-edit'></i>
+                    </a>
+                </td>
+              </tr>";
+        };
+        return response()->json($result);
+    }
 }

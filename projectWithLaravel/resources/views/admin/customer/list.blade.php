@@ -10,7 +10,7 @@
               <input type="text" name="table_search" class="form-control float-right search" placeholder="Search">
 
               <div class="input-group-append">
-                <button type="submit" class="btn btn-default" onclick="search('/admin/customer/search')">
+                <button type="submit" class="btn btn-default btn-search" onclick="search('/admin/customer/search')">
                   <i class="fas fa-search"></i>
                 </button>
               </div>

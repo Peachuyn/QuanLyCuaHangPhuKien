@@ -5,20 +5,19 @@
     <div class="card-body">
       <div class="form-group">
         <label for="menu">Tên Khách Hàng</label>
-        <input type="text" name="name" class="form-control" id="menu" placeholder="Nhập tên nhà cung cấp" value="{{$customer->TenKhachHang}}">
+        <input type="text" name="name" class="form-control" id="menu" placeholder="Nhập tên Khách hàng" value="{{$customer->TenKhachHang}}">
       </div>
       <div class="form-group">
         <label for="menu">Số điện thoại</label>
         <input type="text" name="sdt" class="form-control" id="menu" placeholder="Nhập số điện thoại" value="{{$customer->SoDienThoai}}">
       </div>
       <div>
-        <select class="form-control" name ="sex" >
-        <label for="menu" >Giới Tính</label>
+      <label for="menu" >Giới Tính</label>
+      <select class="form-control" name ="sex" >
                           <option value ="1">Nam</option>
                           <option value ="0" >Nữ</option>
         </select>
       </div>
-      
       <div class="form-group">
         <label for="menu">Email</label>
         <input type="text" name="email" class="form-control" id="menu" placeholder="Nhập Email" value="{{$customer->email}}">

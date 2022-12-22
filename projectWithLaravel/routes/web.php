@@ -80,10 +80,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         #KhachHang
         Route::prefix('customer')->name('customer.')->group(function () {
-            
             Route::get('list', [CustomerController::class, 'index'])->name('list');
             Route::get('edit/{customer}', [CustomerController::class, 'show']);
             Route::post('edit/{customer}', [CustomerController::class, 'update']);
+            Route::get('search', [CustomerController::class, 'search']);
         });
     });
 });

@@ -89,7 +89,6 @@
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Khách hàng
-                    Đơn hàng
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
@@ -97,15 +96,11 @@
                   <li class="nav-item">
                     <a href="/admin/customer/list" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Danh sách khách hàng</p>
-                    <a href="/admin/orders/list" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Danh sách đơn hàng</p>
+                      <p>Danh sách khách hàng</p>                    
                     </a>
                   </li>
                 </ul>
               </li>
-
             </ul>
           </nav>
           <!-- /.sidebar-menu -->
