@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\Users\LoginController;
 use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
+use \App\Http\Controllers\Admin\ProductController;
+
 use \App\Http\Controllers\Client\OrderController;
 use \App\Http\Controllers\Client\ClientController;
 
@@ -49,6 +51,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
         #Product
         Route::prefix('products')->group(function () {
+            Route::get('add', [ProductController::class, 'create']);
         });
     });
 });
