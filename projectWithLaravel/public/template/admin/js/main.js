@@ -1,3 +1,9 @@
+$(document).keypress(function (e) {
+    if (e.which == 13) {
+        $(".btn-search").click();
+    }
+});
+
 $.ajaxSetup({
     headers: {
         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -24,19 +30,14 @@ function removeRow(id, url) {
 }
 
 function search(url) {
-    console.log($(".search").val());
+    var data = $(".search").val();
     $.ajax({
-        type: "get",
+        type: "GET",
         datatype: "JSON",
-        data: { id },
+        data: { data },
         url: url,
         success: function (result) {
-            if (result.error === false) {
-                alert(result.message);
-                location.reload();
-            } else {
-                alert(result.message);
-            }
+            $("tbody").html(result);
         },
     });
 }

@@ -8,14 +8,18 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-class OrderController extends Controller
+class OrderManagementController extends Controller
 {
-    public function list()
+    public function index()
     {
-        $suppliers = DB::table('nhacungcap')->get();
+        $orders = DB::table('donhang')
+            ->join('khachhang', 'khachhang.id', '=', 'donhang.KhachHangID')
+            ->join('users', 'users.id', '=', 'donhang.UserID')
+            ->get();
+        // dd($orders);
         return view('admin.order.list', [
             'title' => 'Danh sách đơn hàng mới nhất',
-            'suppliers' => $suppliers,
+            'orders' => $orders,
         ]);
     }
 }
