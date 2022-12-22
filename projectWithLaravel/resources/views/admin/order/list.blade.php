@@ -7,10 +7,10 @@
         <div class="card-header">
           <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 50vh;">
-              <input type="text" name="table_search" class="form-control float-right search" placeholder="Search">
+              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
               <div class="input-group-append">
-                <button type="submit" class="btn btn-default" onclick="search('/admin/suppliers/search')">
+                <button type="submit" class="btn btn-default">
                   <i class="fas fa-search"></i>
                 </button>
               </div>
@@ -22,11 +22,11 @@
           <table class="table table-head-fixed text-nowrap">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Tên nhà cung cấp</th>
-                <th>Số điện thoại</th>
-                <th>Email</th>
-                <th>Ngành hàng</th>
+                <th>#ID</th>
+                <th>Tên khách hàng</th>
+                <th>Nhân viên</th>
+                <th>Đơn hàng tiến trình</th>
+                <th>Tình trạng</th>
                 <th>Update</th>
                 <th style="width: 100px;">&nbsp;</th>
 

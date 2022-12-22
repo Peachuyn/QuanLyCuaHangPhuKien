@@ -22,3 +22,21 @@ function removeRow(id, url) {
         });
     }
 }
+
+function search(url) {
+    console.log($(".search").val());
+    $.ajax({
+        type: "get",
+        datatype: "JSON",
+        data: { id },
+        url: url,
+        success: function (result) {
+            if (result.error === false) {
+                alert(result.message);
+                location.reload();
+            } else {
+                alert(result.message);
+            }
+        },
+    });
+}

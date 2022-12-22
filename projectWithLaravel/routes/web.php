@@ -5,6 +5,9 @@ use \App\Http\Controllers\Admin\Users\LoginController;
 use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Admin\SupplierController;
+use \App\Http\Controllers\Admin\OrderManagementController;
+
+
 use \App\Http\Controllers\Client\OrderController;
 use \App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\ProductController;
@@ -67,6 +70,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::post('edit/{supplier}', [SupplierController::class, 'update']);
 
             Route::delete('destroy', [SupplierController::class, 'destroy']);
+        });
+        #DonHang
+        Route::prefix('orders')->name('order.')->group(function () {
+            Route::get('list', [OrderManagementController::class, 'index'])->name('list');
         });
     });
 });
