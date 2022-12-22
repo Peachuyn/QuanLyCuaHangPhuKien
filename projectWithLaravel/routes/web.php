@@ -7,6 +7,7 @@ use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Admin\SupplierController;
 use \App\Http\Controllers\Admin\OrderManagementController;
 
+use \App\Http\Controllers\Admin\NhanVienController;
 
 use \App\Http\Controllers\Client\OrderController;
 use \App\Http\Controllers\Client\ClientController;
@@ -59,6 +60,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::delete('destroy', [MenuController::class, 'destroy']);
         });
 
+
         Route::prefix('nhanvien')->group(function () {
             Route::get('add', [NhanVienController::class, 'create']);
             Route::post('add', [NhanVienController::class, 'store']);
@@ -67,11 +69,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('edit/{menu}', [NhanVienController::class, 'show']);
             Route::post('edit/{menu}', [NhanVienController::class, 'update']);
             Route::delete('destroy', [NhanVienController::class, 'destroy']);
-            // Route::get('edit/{menu}', [MenuController::class, 'show']);
-            // Route::post('edit/{menu}', [MenuController::class, 'update']);
-
-            // Route::delete('destroy', [MenuController::class, 'destroy']);
-        });
 
         #Product
         Route::prefix('products')->group(function () {
@@ -86,6 +83,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::post('edit/{supplier}', [SupplierController::class, 'update']);
 
             Route::delete('destroy', [SupplierController::class, 'destroy']);
+            Route::get('search', [SupplierController::class, 'search']);
         });
         #DonHang
         Route::prefix('orders')->name('order.')->group(function () {
