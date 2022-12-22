@@ -6,6 +6,7 @@ use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Admin\SupplierController;
 use \App\Http\Controllers\Admin\OrderManagementController;
+use \App\Http\Controllers\Admin\NhanVienController;
 
 
 use \App\Http\Controllers\Client\OrderController;
@@ -55,6 +56,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::post('edit/{menu}', [MenuController::class, 'update']);
 
             Route::delete('destroy', [MenuController::class, 'destroy']);
+        });
+
+        #Nhanvien
+        Route::prefix('nhanvien')->group(function () {
+            Route::get('add', [NhanVienController::class, 'create']);
+            Route::post('add', [NhanVienController::class, 'store']);
+            Route::get('list', [NhanVienController::class, 'index']);
+            Route::get('edit/{menu}', [NhanVienController::class, 'show']);
+            Route::post('edit/{menu}', [NhanVienController::class, 'update']);
+            Route::delete('destroy', [NhanVienController::class, 'destroy']);
         });
 
         #Product
