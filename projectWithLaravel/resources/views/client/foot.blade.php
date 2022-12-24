@@ -112,6 +112,11 @@
                     //console.log(response.product_id)
                     $(`.product-${response.product_id}`).remove();
                     $('.total-cost').text(response.cart.TongTien);
+
+                    //Chỉnh số lượng của cart
+                    $('#cart_count').html(response.cart.SoLuong);
+                    //Chỉnh tổng tiền
+                    $('#cart_money').html(`<strong>Total</strong>: ${response.cart.TongTien}`);
                     
                 }
             })

@@ -115,7 +115,7 @@
                     <ul class="cart-list">
                         @if(isset($GioHangCT_floats))
                         @foreach ($GioHangCT_floats as $GioHangCT_float)
-                        <li class="product-list" id="{{$GioHangCT_float->GioHangChiTietID}}">
+                        <li class="product-list product-{{$GioHangCT_float->SanPhamID}}" id="{{$GioHangCT_float->GioHangChiTietID}}">
                             <a href="#" class="photo"><img src="{{'/template/admin/images/SanPhamBellezza/SanPham/'.$GioHangCT_float->HinhAnh}}" class="cart-thumb" alt="" /></a>
                             <h6><a href="/shop/product-detail/{{$GioHangCT_float->SanPhamID}}">{{$GioHangCT_float->SanPhamTen}}</a></h6>
                             <p>{{$GioHangCT_float->SoLuong}}x - <span class="price">{{$GioHangCT_float->ThanhTien}}</span></p>

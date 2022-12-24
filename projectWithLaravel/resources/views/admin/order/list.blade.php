@@ -7,10 +7,10 @@
         <div class="card-header">
           <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 50vh;">
-              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+              <input type="text" name="table_search" class="form-control float-right search" placeholder="Search">
 
               <div class="input-group-append">
-                <button type="submit" class="btn btn-default">
+                <button type="submit" class="btn btn-default btn-search" onclick="search('/admin/orders/search')">
                   <i class="fas fa-search"></i>
                 </button>
               </div>
@@ -24,7 +24,6 @@
               <tr>
                 <th>#ID</th>
                 <th>Tên khách hàng</th>
-                <th>Nhân viên</th>
                 <th>Đơn hàng tiến trình</th>
                 <th>Tình trạng</th>
                 <th>Giá ship</th>
@@ -39,7 +38,6 @@
               <tr>
                 <td>{{$order->DonHangID}}</td>
                 <td>{{$order->TenKhachHang}}</td>
-                <td>{{$order->name}}</td>
                 <td class="project_progress">
                     @if($order->DonHang_TinhTrang==0)
                   <div class="progress progress-sm">

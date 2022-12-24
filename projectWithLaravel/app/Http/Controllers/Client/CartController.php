@@ -30,6 +30,7 @@ class CartController extends Controller
             $cart = DB::table('giohang')->where('KhachHangID', Auth::guard('khachhang')->user()->id)->first();
         } else {
             $products = array();
+            $cart = DB::table('giohang')->where('KhachHangID', Auth::guard('khachhang')->user()->id)->first();
         }
 
         return view('client.cart.cart', ['products' => $products, 'cart' => $cart]);

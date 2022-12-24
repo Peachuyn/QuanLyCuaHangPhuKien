@@ -100,6 +100,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('list', [OrderManagementController::class, 'index'])->name('list');
             Route::get('edit/{supplier}', [OrderManagementController::class, 'show']);
             Route::post('edit/{supplier}', [OrderManagementController::class, 'update']);
+            Route::get('search', [OrderManagementController::class, 'search']);
         });
 
         #KhachHang

@@ -33,7 +33,7 @@
       </div>
       <div class="form-group">
         <label for="menu">Mật khẩu</label>
-        <input type="text" name="password" class="form-control" id="menu" placeholder="Nhập mật khẩu">
+        <input type="password" name="password" class="form-control" id="menu" placeholder="Nhập mật khẩu">
       </div>
       <div class="form-group">
         <label for="menu">Số điện thoại</label>

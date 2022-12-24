@@ -42,7 +42,7 @@ class SupplierController extends Controller
         $suppliers['NganhHang'] = $request->nganhhang;
         try {
             DB::table('nhacungcap')->insert($suppliers);
-            Session::flash('success', 'Thêm thành công Danh mục');
+            Session::flash('success', 'Thêm thành công Nhà cung cấp');
         } catch (\Exception $err) {
             Session::flash('error', $err->getMessage());
         }
@@ -74,7 +74,7 @@ class SupplierController extends Controller
         $suppliers['NganhHang'] = $request->nganhhang;
         try {
             DB::table('nhacungcap')->where('NhaCungCapID', $id)->update($suppliers);
-            Session::flash('success', 'Chỉnh sửa thành công Danh mục');
+            Session::flash('success', 'Chỉnh sửa thành công Nhà cung cấp');
         } catch (\Exception $err) {
             Session::flash('error', $err->getMessage());
         }

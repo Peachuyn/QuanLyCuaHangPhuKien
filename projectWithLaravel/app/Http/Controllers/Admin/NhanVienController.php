@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,9 +11,11 @@ use Illuminate\Support\Facades\Session;
 class NhanVienController extends Controller
 {
     //
-    public function create (){
+    public function create()
+    {
         return view('admin.nhanvien.add', [
-            'title' => 'Thêm nhân viên']);
+            'title' => 'Thêm nhân viên'
+        ]);
     }
     public function store(Request $request)
     {
@@ -24,8 +27,9 @@ class NhanVienController extends Controller
         ]);
         $nhanvien = array();
         $nhanvien['name'] = $request->name;
+        $nhanvien['gender'] = $request->gioitinh;
         $nhanvien['role'] = $request->chucvu;
-        $nhanvien['password'] = $request->password;
+        $nhanvien['password'] = bcrypt($request->password);
         $nhanvien['phoneNumber'] = $request->sdt;
         $nhanvien['email'] = $request->email;
         $nhanvien['address'] = $request->diachi;
@@ -65,10 +69,10 @@ class NhanVienController extends Controller
         ]);
         $nhanvien = array();
         $nhanvien['name'] = $request->name;
-        $nhanvien['role'] = $request->role;
-        $nhanvien['phoneNumber'] = $request->phoneNumber;
+        $nhanvien['role'] = $request->chucvu;
+        $nhanvien['phoneNumber'] = $request->sdt;
         $nhanvien['email'] = $request->email;
-        $nhanvien['address'] = $request->address;
+        $nhanvien['address'] = $request->diachi;
         try {
             DB::table('users')->where('id', $id)->update($nhanvien);
             Session::flash('success', 'Chỉnh sửa thành công Thông tin nhân viên');
@@ -100,14 +104,14 @@ class NhanVienController extends Controller
     public function search(Request $request)
     {
         $data = $request->input('data');
-        $nhanvien = DB::table('users')
+        $nhanviens = DB::table('users')
             ->where('name', 'like', '%' . $data . '%')
             ->orWhere('phoneNumber', 'like', '%' . $data . '%')
             ->get();
         $result = "";
-        foreach ($nhanvien as $nhanvien) {
-            $sex = $nhanvien -> gender == 1? 'Nữ':'Nam';
-            $chucvu = $nhanvie -> role == 1? 'Quản lý':'Nhân viên';
+        foreach ($nhanviens as $nhanvien) {
+            $sex = $nhanvien->gender == 1 ? 'Nữ' : 'Nam';
+            $chucvu = $nhanvien->role == 1 ? 'Quản lý' : 'Nhân viên';
 
             $result .=
                 "<tr>

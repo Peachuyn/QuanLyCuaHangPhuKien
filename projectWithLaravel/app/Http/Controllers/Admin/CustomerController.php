@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -46,7 +47,7 @@ class CustomerController extends Controller
         $customers['DiaChi'] = $request->addr;
         try {
             DB::table('khachhang')->where('id', $id)->update($customers);
-            Session::flash('success', 'Chỉnh sửa thành công Danh mục');
+            Session::flash('success', 'Chỉnh sửa thành công Khách hàng');
         } catch (\Exception $err) {
             Session::flash('error', $err->getMessage());
         }
@@ -62,7 +63,7 @@ class CustomerController extends Controller
             ->get();
         $result = "";
         foreach ($customers as $customer) {
-            $sex = $customer->GioiTinh==0?'Nữ':'Nam';
+            $sex = $customer->GioiTinh == 0 ? 'Nữ' : 'Nam';
             $result .=
                 "<tr>
                 <td>$customer->id</td>

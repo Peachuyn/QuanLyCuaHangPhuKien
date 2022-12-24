@@ -58,12 +58,11 @@
         <div class="row my-5">
             <div class="col-lg-8 col-sm-12"></div>
             <div class="col-lg-4 col-sm-12">
-                @foreach($products as $product)
                 <div class="order-box">
                     <h3>Order summary</h3>
                     <div class="d-flex">
                         <h4>Sub Total</h4>
-                        <div class="ml-auto font-weight-bold total-cost">{{$cart->TongTien}}</div>
+                        <div class="ml-auto font-weight-bold total-cost">@if(isset($cart)){{$cart->TongTien}}@else 0 @endif</div>
                     </div>
                     <div class="d-flex">
                         <h4>Shipping Cost</h4>
@@ -72,11 +71,10 @@
                     <hr>
                     <div class="d-flex gr-total">
                         <h5>Grand Total</h5>
-                        <div class="ml-auto h5 total-cost">{{$cart->TongTien}}</div>
+                        <div class="ml-auto h5 total-cost">@if(isset($cart)){{$cart->TongTien}}@else 0 @endif</div>
                     </div>
                     <hr>
                 </div>
-                @endforeach
             </div>
             <div class="col-12 d-flex shopping-box"><a href="{{route('client.checkout')}}" class="ml-auto btn hvr-hover">Checkout</a> </div>
         </div>

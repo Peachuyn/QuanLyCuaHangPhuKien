@@ -8,10 +8,6 @@
         <input disabled type="text" name="sdt" class="form-control" id="menu" placeholder="Nhập số điện thoại" value="{{$donhang->TenKhachHang}}">
       </div>
       <div class="form-group">
-        <label for="menu">Tên nhân viên</label>
-        <input disabled type="text" name="email" class="form-control" id="menu" placeholder="Nhập Email" value="{{$donhang->name}}">
-      </div>
-      <div class="form-group">
         <label for="menu">Giá ship</label>
         <input disabled type="text" name="nganhhang" class="form-control" id="menu" placeholder="Nhập Tên ngành hàng" value="{{$donhang->GiaShip}}">
       </div>

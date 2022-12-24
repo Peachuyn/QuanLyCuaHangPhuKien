@@ -37,35 +37,36 @@ function search(url) {
         data: { data },
         url: url,
         success: function (result) {
+            console.log(result);
             $("tbody").html(result);
         },
     });
 }
-function thongke(url){
+function thongke(url) {
     let d = new Date($(".thangnam").val());
-    var month = d.getMonth()+1;
+    var month = d.getMonth() + 1;
     var year = d.getFullYear();
     $.ajax({
         type: "get",
         datatype: "JSON",
-        data: {month,year},
+        data: { month, year },
         url: url,
         success: function (result) {
-           $("tbody").html(result);
+            $("tbody").html(result);
         },
     });
 }
-function thongkecp(url){
+function thongkecp(url) {
     let d = new Date($(".thangnamcp").val());
-    var month = d.getMonth()+1;
+    var month = d.getMonth() + 1;
     var year = d.getFullYear();
     $.ajax({
         type: "get",
         datatype: "JSON",
-        data: {month,year},
+        data: { month, year },
         url: url,
         success: function (result) {
-           $("tbody").html(result);
+            $("tbody").html(result);
         },
     });
 }
