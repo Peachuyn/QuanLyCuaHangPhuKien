@@ -40,3 +40,31 @@ function search(url) {
         },
     });
 }
+function thongke(url){
+    let d = new Date($(".thangnam").val());
+    var month = d.getMonth()+1;
+    var year = d.getFullYear();
+    $.ajax({
+        type: "get",
+        datatype: "JSON",
+        data: {month,year},
+        url: url,
+        success: function (result) {
+           $("tbody").html(result);
+        },
+    });
+}
+function thongkecp(url){
+    let d = new Date($(".thangnamcp").val());
+    var month = d.getMonth()+1;
+    var year = d.getFullYear();
+    $.ajax({
+        type: "get",
+        datatype: "JSON",
+        data: {month,year},
+        url: url,
+        success: function (result) {
+           $("tbody").html(result);
+        },
+    });
+}

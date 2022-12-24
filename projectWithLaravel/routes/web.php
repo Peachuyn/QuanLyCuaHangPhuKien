@@ -6,6 +6,7 @@ use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Admin\SupplierController;
 use \App\Http\Controllers\Admin\OrderManagementController;
+use \App\Http\Controllers\Admin\StatisticController;
 
 
 use \App\Http\Controllers\Client\OrderController;
@@ -70,6 +71,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::post('edit/{supplier}', [SupplierController::class, 'update']);
 
             Route::delete('destroy', [SupplierController::class, 'destroy']);
+        });
+        #ThongKe
+        Route::prefix('statistics')->name('statistic.')->group(function () {
+            Route::get('cost', [StatisticController::class, 'listcost'])->name('cost');
+            Route::get('revenue', [StatisticController::class, 'listrevenue'])->name('revenue');
+            Route::get('thongke', [StatisticController::class, 'thongke']);
+            Route::get('thongkecp', [StatisticController::class, 'thongkecp']);
         });
         #DonHang
         Route::prefix('orders')->name('order.')->group(function () {

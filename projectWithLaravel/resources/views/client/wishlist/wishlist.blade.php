@@ -39,10 +39,13 @@
                                     <a class="btn hvr-hover" onclick="AddCart({{$product->SanPhamID}})" href="javascript:">Add to Cart</a>
                                 </td>
                                 <td class="remove-pr">
-                                    <a onlick="DelWishlist({{$product->SanPhamID}})" href="javascript:">
+                                    <a class="fas fa-times" onclick="DelWishlist({{$product->SanPhamID}})" href="javascript:"></a>
+                                </td>
+                                <!-- <td class="remove-pr">
+                                    <a class="fas fa-times" onlick="DelWishlist({{$product->SanPhamID}})" href="javascript:">
                                         <i class="fas fa-times"></i>
                                     </a>
-                                </td>
+                                </td> -->
                             </tr>
                             @endforeach
 
