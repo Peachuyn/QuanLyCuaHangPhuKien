@@ -6,6 +6,7 @@ use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Admin\SupplierController;
 use \App\Http\Controllers\Admin\OrderManagementController;
+use \App\Http\Controllers\Admin\CustomerController;
 
 
 use \App\Http\Controllers\Client\OrderController;
@@ -75,6 +76,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         #DonHang
         Route::prefix('orders')->name('order.')->group(function () {
             Route::get('list', [OrderManagementController::class, 'index'])->name('list');
+        });
+
+        #KhachHang
+        Route::prefix('customer')->name('customer.')->group(function () {
+            Route::get('list', [CustomerController::class, 'index'])->name('list');
+            Route::get('edit/{customer}', [CustomerController::class, 'show']);
+            Route::post('edit/{customer}', [CustomerController::class, 'update']);
+            Route::get('search', [CustomerController::class, 'search']);
         });
     });
 });
