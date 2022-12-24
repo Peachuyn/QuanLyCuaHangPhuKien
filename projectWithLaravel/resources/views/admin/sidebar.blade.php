@@ -58,6 +58,7 @@
                   </li>
                 </ul>
               </li>
+
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -104,7 +105,6 @@
                   </li>
                 </ul>
               </li>
-
               <!-- khach hang -->
               <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -123,34 +123,7 @@
                   </li>
                 </ul>
               </li>
-              
-              {{-- <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                    Nhân viên
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="/admin/nhanvien/add" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Thêm nhân viên</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/admin/nhanvien/list" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Danh sách nhân viên</p>
-                    </a>
-                  </li> --}}
-                  {{-- <li class="nav-item">
-                    <a href="../../index3.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Dashboard v3</p>
-                    </a>
-                  </li> --}}
+
                 </ul>
               </li>
             </ul>
