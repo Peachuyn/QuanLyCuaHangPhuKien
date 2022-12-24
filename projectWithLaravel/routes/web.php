@@ -13,7 +13,7 @@ use \App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\ProductController;
 use App\Http\Controllers\Client\SearchController;
 use App\Http\Controllers\Client\HomeController;
-
+use App\Http\Controllers\Client\GalleryController;
 use App\Http\Controllers\Client\WishlistController;
 use App\Http\Controllers\Client\CartController;
 
@@ -75,6 +75,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         #DonHang
         Route::prefix('orders')->name('order.')->group(function () {
             Route::get('list', [OrderManagementController::class, 'index'])->name('list');
+            Route::get('edit/{supplier}', [OrderManagementController::class, 'show']);
+            Route::post('edit/{supplier}', [OrderManagementController::class, 'update']);
         });
     });
 });
@@ -93,22 +95,17 @@ Route::prefix('shop')->name('client.')->group(function () {
 
         Route::post('/logout', [ClientController::class, 'logout'])->name('logout');
 
-        Route::get('gallery', function () {
-            return view('client.gallery.gallery');
-        })->name('gallery');
+        Route::get('gallery', [GalleryController::class, 'index'])->name('gallery');
 
         Route::get('about-us', function () {
             return view('client.about.about-us');
         })->name('about-us');
 
-        // Route::get('cart', function () {
-        //     return view('client.cart.cart');
-        // })->name('cart');
         Route::get('cart', [CartController::class, 'gh'])->name('cart');
+        Route::get('del_cart/{id}', [SearchController::class, 'del_cart'])->name('del_cart');
 
-        Route::get('checkout', function () {
-            return view('client.cart.checkout');
-        })->name('checkout');
+        Route::get('checkout', [CartController::class, 'checkout'])->name('checkout')->middleware('CheckProductQuantity');
+        Route::post('checkout', [CartController::class, 'postcheckout']);
 
         Route::get('contact-us', function () {
             return view('client.contact.contact-us');

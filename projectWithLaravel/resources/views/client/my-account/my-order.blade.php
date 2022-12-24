@@ -1,6 +1,8 @@
 @extends('client.layout')
 
 @section('content')
+@include('admin/alert')
+
     <!-- Start My order  -->
     <div class="row mt-5">
         <div class="col-lg-12">
@@ -29,9 +31,9 @@
                                     <th>Thời gian đặt: {{$donhang->ThoiGianTao}}    </th>
                                     <th></th>
                                     <th></th>
-                                    <th>@if($donhang->DonHang_TinhTrang==1) Mới đặt
-                                        @elseif($donhang->DonHang_TinhTrang==2) Đang xử lý
-                                        @elseif($donhang->DonHang_TinhTrang==3) Thành công
+                                    <th>@if($donhang->DonHang_TinhTrang==0) Mới đặt
+                                        @elseif($donhang->DonHang_TinhTrang==1) Đang được giao
+                                        @elseif($donhang->DonHang_TinhTrang==2) Thành công
                                         @else Đã hủy
                                         @endif
                                     </th>
@@ -43,12 +45,12 @@
                                 @if($chitiet->DonHangID==$donhang->DonHangID)
                                     <tr>
                                         <td class="thumbnail-img">
-                                            <a href="#">
+                                            <a href="/shop/product-detail/{{$chitiet->SanPhamID}}">
                                                 <img class="img-fluid" src="{{'/template/admin/images/SanPhamBellezza/SanPham/'.$chitiet->HinhAnh}}" alt="">
                                             </a>
                                         </td>
                                         <td class="name-pr">
-                                            <a href="#">
+                                            <a href="/shop/product-detail/{{$chitiet->SanPhamID}}">
                                                {{$chitiet->SanPhamTen}}
                                             </a>
                                         </td>

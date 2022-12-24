@@ -24,7 +24,7 @@
     <!-- /.card-body -->
 
     <div class="card-footer">
-      <button type="submit" class="btn btn-primary">Tạo nhà cung cấp</button>
+      <button type="submit" class="btn btn-primary">Cập nhật nhà cung cấp</button>
     </div>
   @csrf
 

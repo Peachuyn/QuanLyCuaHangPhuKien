@@ -16,7 +16,7 @@ class OrderController extends Controller
         foreach ($donhangs as $donhang) {
             $chitietdonhang = DB::table('chitiet_donhang')
                 ->join('sanpham', 'chitiet_donhang.SanPhamID', '=', 'sanpham.SanPhamID')
-                ->select('chitiet_donhang.*', 'sanpham.SanPhamTen', 'sanpham.Gia', 'sanpham.HinhAnh')->get()
+                ->select('chitiet_donhang.*', 'sanpham.SanPhamTen', 'sanpham.Gia', 'sanpham.HinhAnh', 'sanpham.SanPhamID')->get()
                 ->where('DonHangID', $donhang->DonHangID);
             array_push($chitietdonhangs, $chitietdonhang);
         }

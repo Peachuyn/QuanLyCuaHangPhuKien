@@ -88,9 +88,7 @@
                 }
             })
         }
-
         function DelWishlist(id){
-            console.log(id);
             $.ajax({
                 url:'/shop/del_wishlist/'+id,
                 type:'GET',
@@ -98,11 +96,42 @@
                     'product_id' : id,
                 },
                 success: function(response){
-                    alert(response.status);
+                    $(`.product-${response.product_id}`).remove();
                     
                 }
             })
         }
+        function DelCart(id){
+            $.ajax({
+                url:'/shop/del_cart/'+id,
+                type:'GET',
+                data: {
+                    'product_id' : id,
+                },
+                success: function(response){
+                    //console.log(response.product_id)
+                    $(`.product-${response.product_id}`).remove();
+                    $('.total-cost').text(response.cart.TongTien);
+                    
+                }
+            })
+        }
+        $('.shipping input').on('change', function() {
+            $cartcost=parseInt($('.cart-cost').text());
+            $fee=parseInt($('input[name=shipping_option]:checked').val());
+            if($fee==0){
+                $('.shipping-cost').text("Free");
+            }
+            else if($fee==20000){
+                $('.shipping-cost').text("20000");
+                
+            }
+            else $('.shipping-cost').text("30000");
+            $('.total-cost').text($cartcost+$fee);
+         });
+        // $(".quantity-cart").bind('change', function () {
+            
+        // });
 
     </script>
 </body>

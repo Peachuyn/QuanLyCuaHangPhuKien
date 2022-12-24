@@ -8,7 +8,6 @@
           <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 50vh;">
               <input type="text" name="table_search" class="form-control float-right search" placeholder="Search">
-
               <div class="input-group-append">
                 <button type="submit" class="btn btn-default btn-search" onclick="search('/admin/suppliers/search')">
                   <i class="fas fa-search"></i>

@@ -159,6 +159,43 @@ class SearchController extends Controller
 
     public function del_wishlist(Request $request)
     {
-        return response()->json(['status' => 'Tạo xong wishlist']);
+        $id = $request->product_id;
+        $Wishlist = DB::table('wishlist')
+            ->where('KhachHangID', Auth::guard('khachhang')->user()->id)
+            ->first();
+        DB::table('wishlist_chitiet')->where('SanPhamID', $id)
+            ->where('WishlistID', $Wishlist->WishlistID)
+            ->delete();
+        return response()->json(['product_id' => $id]);
+    }
+
+    public function del_cart(Request $request)
+    {
+        $id = $request->product_id;
+        //Xoa giohang_chitiet
+        $cart = DB::table('giohang')
+            ->where('KhachHangID', Auth::guard('khachhang')->user()->id)
+            ->first();
+        $cart_detail = DB::table('giohang_chitiet')
+            ->where('GioHangID', '=', $cart->GioHangID)
+            ->where('giohang_chitiet.SanPhamID', '=', $id)
+            ->first();
+        $product_qty = $cart_detail->SoLuong;
+        $thanhtien = $cart_detail->ThanhTien;
+        //Cap nhat lai gio hang sau khi del
+        $GioHangUpdate = array();
+        $GioHangUpdate['SoLuong'] = $cart->SoLuong - $product_qty;
+        $GioHangUpdate['TongTien'] = $cart->TongTien - $thanhtien;
+        DB::table('giohang')->where('KhachHangID', Auth::guard('khachhang')->user()->id)->update($GioHangUpdate);
+        //Del
+        $cart_detail = DB::table('giohang_chitiet')
+            ->where('GioHangID', '=', $cart->GioHangID)
+            ->where('giohang_chitiet.SanPhamID', '=', $id)
+            ->delete();
+        //Lay data
+        $cart_final = DB::table('giohang')
+            ->where('KhachHangID', Auth::guard('khachhang')->user()->id)
+            ->first();
+        return response()->json(['product_id' => $id, 'cart' => $cart_final]);
     }
 }

@@ -41,25 +41,54 @@
                 <td>{{$order->TenKhachHang}}</td>
                 <td>{{$order->name}}</td>
                 <td class="project_progress">
+                    @if($order->DonHang_TinhTrang==0)
                   <div class="progress progress-sm">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                      </div>
+                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                    </div>
                   </div>
                   <small>
-                      57% Complete
-                  </small>
+                    30% Complete
+                </small>
+                    @elseif($order->DonHang_TinhTrang==1)
+                  <div class="progress progress-sm">
+                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                    </div>
+                  </div>
+                  <small>
+                    60% Complete
+                </small>
+                    @elseif($order->DonHang_TinhTrang==2)
+                  <div class="progress progress-sm">
+                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                    </div>
+                  </div>
+                  <small>
+                    100% Complete
+                </small>
+                    @elseif($order->DonHang_TinhTrang==3)
+                  <div class="progress progress-sm">
+                    <div class="progress-bar bg-red" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                    </div>
+                  </div>
+                  <small>
+                    Cancel
+                </small>
+                    @endif
+                  
                 </td>
-                <td>{{$order->DonHang_TinhTrang}}</td>
+                <td>@if($order->DonHang_TinhTrang==0)Đơn hàng mới
+                    @elseif($order->DonHang_TinhTrang==1)Đơn hàng đang được giao
+                    @elseif($order->DonHang_TinhTrang==2)Đơn hàng đã hoàn thành
+                    @elseif($order->DonHang_TinhTrang==3)Đơn hàng đã hủy
+                    @endif
+                </td>
                 <td>{{$order->GiaShip}}</td>
                 <td>{{$order->TongTien}}</td>
-                <td>{{$order->DiaChi}}</td>
+                <td>{{$order->DiaChi.', '.$order->TenQuan.', '.$order->TenTinh}}</td>
                 <td>{{$order->ThoiGianTao}}</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" href="/admin/suppliers/edit/{{$order->DonHangID}}">
+                    <a class="btn btn-primary btn-sm" href="/admin/orders/edit/{{$order->DonHangID}}">
                         <i class="fas fa-edit"></i>
-                    </a>
-                    <a href="#" class="btn btn-danger btn-sm" onclick="removeRow('{{$order->DonHangID}}', '/admin/suppliers/destroy')">
-                        <i class="fas fa-trash"></i>
                     </a>
                 </td>
               </tr>

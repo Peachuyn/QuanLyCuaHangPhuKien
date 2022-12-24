@@ -54,6 +54,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
+        'CheckProductQuantity' => \App\Http\Middleware\CheckProductQuantity::class,
         'PreventBackHistory' => \App\Http\Middleware\PreventBackHistory::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
