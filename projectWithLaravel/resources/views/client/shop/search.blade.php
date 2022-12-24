@@ -14,10 +14,7 @@
                                 <div class="toolbar-sorter-right">
                                     <span>Sort by </span>
                                     <select onchange="location = this.value;" id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-									<option value="{{URL::current()}}" {{$url=='none'?'data-display=Select': ''}}>All</option>
-                                    <option value="{{URL::current()."?sort=newest"}}" {{$url=='newest'?'data-display=Select': ''}}>Newest</option>
-									<option value="{{URL::current()."?sort=price_desc"}}" {{$url=='price_desc'?'data-display=Select': ''}}>High Price → Low Price</option>
-									<option value="{{URL::current()."?sort=price_asc"}}" {{$url=='price_asc'?'data-display=Select': ''}}>Low Price → High Price</option>
+									<option>All</option>
 								</select>
                                 </div>
                                 <p>Showing all {{$count}} results</p>
@@ -48,11 +45,10 @@
                                                     <img src="{{'/template/admin/images/SanPhamBellezza/SanPham/'.$product->HinhAnh}}" class="img-fluid" alt="Image">
                                                     <div class="mask-icon">
                                                         <ul>
-                                                            <li><a href="product-detail/{{$product->SanPhamID}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                            <li><a href="javascript:" onclick="AddWishlist({{$product->SanPhamID}})" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                            <li><a href="/shop/product-detail/{{$product->SanPhamID}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                            <li><a onclick="AddWishlist({{$product->SanPhamID}})"href="javascript:" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                         </ul>
                                                         <a class="cart" onclick="AddCart({{$product->SanPhamID}})" href="javascript:">Add to Cart</a>
-
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
@@ -77,8 +73,8 @@
                                                         <img src="{{'/template/admin/images/SanPhamBellezza/SanPham/'.$product->HinhAnh}}" class="img-fluid" alt="Image">
                                                         <div class="mask-icon">
                                                             <ul>
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                                <li><a href="javascript:" onclick="AddWishlist({{$product->SanPhamID}})" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                                <li><a href="/shop/product-detail/{{$product->SanPhamID}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                <li><a onclick="AddWishlist({{$product->SanPhamID}})"href="javascript:" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                             </ul>
 
                                                         </div>
@@ -114,6 +110,8 @@
                                 <h3>Categories</h3>
                             </div>
                             <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men" data-children=".sub-men">
+                                <a href="/shop/all-product" class="list-group-item list-group-item-action">Tất cả sản phẩm</a>
+                                
                                 @foreach($categories as $category)
                                 @if($category->parent_id==0)
                                     @foreach($categories as $category_c2)
@@ -161,7 +159,5 @@
                     <li class="breadcrumb-item active">Shop</li>
                 </ul>
 @endsection
-
-
 
 

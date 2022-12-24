@@ -15,7 +15,7 @@ class MenuService
 
     public function getAll()
     {
-        return Menu::orderBy('id','desc')->paginate(20);
+        return Menu::orderBy('id', 'desc')->paginate(20);
     }
 
     public function create($request)
@@ -36,7 +36,8 @@ class MenuService
         return true;
     }
 
-    public function update($request, $menu):bool{
+    public function update($request, $menu): bool
+    {
         $menu->fill($request->input());
         $menu->save();
 
@@ -44,13 +45,13 @@ class MenuService
         return true;
     }
 
-    public function destroy($request){
-        $id=(int) $request->input('id');
-        $menu=Menu::where('id', $request->input('id'))->first();
-        if($menu){
+    public function destroy($request)
+    {
+        $id = (int) $request->input('id');
+        $menu = Menu::where('id', $request->input('id'))->first();
+        if ($menu) {
             return Menu::where('id', $id)->orWhere('parent_id', $id)->delete();
         }
         return false;
     }
-
 }

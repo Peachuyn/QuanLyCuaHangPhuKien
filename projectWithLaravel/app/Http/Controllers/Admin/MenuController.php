@@ -39,32 +39,33 @@ class MenuController extends Controller
          'menus' => $this->menuService->getAll(),
       ]);
    }
-    //Show man hinh update
-    public function show(Menu $menu){
-        return view('admin.menu.edit', [
-            'title' => 'Chỉnh sửa danh mục: '.$menu->name,
-            'menu' => $menu,
-            'menus' => $this->menuService->getParent(),
-        ]);
-    }
-    //Update
-    public function update(Menu $menu, CreateFormRequest $request){
-        $this->menuService->update($request, $menu);
-        return redirect('/admin/menus/list');
-    }
-
-
-    //Xoa
-   public function destroy(Request $request){
-       $result=$this->menuService->destroy($request);
-       if($result){
-           return response()->json(['error'=>false,'message'=>'Xóa thành công danh mục']);
-
-       }
-       return response()->json([
-           'error'=>true,
-       ]);
+   //Show man hinh update
+   public function show(Menu $menu)
+   {
+      return view('admin.menu.edit', [
+         'title' => 'Chỉnh sửa danh mục: ' . $menu->name,
+         'menu' => $menu,
+         'menus' => $this->menuService->getParent(),
+      ]);
+   }
+   //Update
+   public function update(Menu $menu, CreateFormRequest $request)
+   {
+      $this->menuService->update($request, $menu);
+      return redirect('/admin/menus/list');
    }
 
 
+   //Xoa
+   public function destroy(Request $request)
+   {
+      $result = $this->menuService->destroy($request);
+      if ($result) {
+         return response()->json(['error' => false, 'message' => 'Xóa thành công danh mục']);
+      }
+      return response()->json([
+         'error' => true,
+         'message' => 'Xóa không thành công do danh mục có chứa sản phẩm',
+      ]);
+   }
 }

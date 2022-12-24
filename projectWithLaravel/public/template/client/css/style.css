@@ -990,7 +990,21 @@ nav.navbar .navbar-brand img.logo {
      padding: 5px 10px;
      display: block;
 }
- .mask-icon a.cart{
+ .mask-icon button{
+    cursor:pointer;
+     border: none;
+     background: #af9ad5;
+     position: absolute;
+     bottom: 0;
+     left: 0px;
+     padding: 10px 20px;
+     font-weight: 700;
+     color: #ffffff;
+}
+
+.mask-icon a.cart{
+    cursor:pointer;
+     border: none;
      background: #af9ad5;
      position: absolute;
      bottom: 0;
@@ -1173,7 +1187,7 @@ nav.navbar .navbar-brand img.logo {
 /*------------------------------------------------------------------ Instagram Feed -------------------------------------------------------------------*/
  .instagram-box{
      padding: 70px 0px;
-     background: url(../images/ins-bg.jpg) no-repeat center center;
+     background: url(../images/banner-01.png) no-repeat center center;
      background-size: auto auto;
      -webkit-background-size: cover;
      -moz-background-size: cover;

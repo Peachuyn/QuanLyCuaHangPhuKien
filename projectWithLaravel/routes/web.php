@@ -6,9 +6,18 @@ use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Admin\ProductController;
 
+use \App\Http\Controllers\Admin\SupplierController;
+use \App\Http\Controllers\Admin\OrderManagementController;
+
+
 use \App\Http\Controllers\Client\OrderController;
 use \App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\Client\ProductController;
+use App\Http\Controllers\Client\SearchController;
+use App\Http\Controllers\Client\HomeController;
 
+use App\Http\Controllers\Client\WishlistController;
+use App\Http\Controllers\Client\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,9 +58,40 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
             Route::delete('destroy', [MenuController::class, 'destroy']);
         });
+
         #Product
         Route::prefix('products')->group(function () {
             Route::get('add', [ProductController::class, 'create']);
+        });
+
+        #NhaCungCap
+        Route::prefix('suppliers')->name('supplier.')->group(function () {
+            Route::get('add', [SupplierController::class, 'create']);
+            Route::post('add', [SupplierController::class, 'store']);
+            Route::get('list', [SupplierController::class, 'index'])->name('list');
+            Route::get('edit/{supplier}', [SupplierController::class, 'show']);
+            Route::post('edit/{supplier}', [SupplierController::class, 'update']);
+
+            Route::delete('destroy', [SupplierController::class, 'destroy']);
+        });
+        #DonHang
+        Route::prefix('orders')->name('order.')->group(function () {
+            Route::get('list', [OrderManagementController::class, 'index'])->name('list');
+        });
+
+        #NhaCungCap
+        Route::prefix('suppliers')->name('supplier.')->group(function () {
+            Route::get('add', [SupplierController::class, 'create']);
+            Route::post('add', [SupplierController::class, 'store']);
+            Route::get('list', [SupplierController::class, 'index'])->name('list');
+            Route::get('edit/{supplier}', [SupplierController::class, 'show']);
+            Route::post('edit/{supplier}', [SupplierController::class, 'update']);
+
+            Route::delete('destroy', [SupplierController::class, 'destroy']);
+        });
+        #DonHang
+        Route::prefix('orders')->name('order.')->group(function () {
+            Route::get('list', [OrderManagementController::class, 'index'])->name('list');
         });
     });
 });
@@ -66,9 +106,7 @@ Route::prefix('shop')->name('client.')->group(function () {
         Route::post('register', [ClientController::class, 'postRegister']);
     });
     Route::middleware(['auth:khachhang', 'PreventBackHistory'])->group(function () {
-        Route::get('home', function () {
-            return view('client.home.home');
-        })->name('home');
+        Route::get('home', [HomeController::class, 'index'])->name('home');
 
         Route::post('/logout', [ClientController::class, 'logout'])->name('logout');
 
@@ -80,9 +118,10 @@ Route::prefix('shop')->name('client.')->group(function () {
             return view('client.about.about-us');
         })->name('about-us');
 
-        Route::get('cart', function () {
-            return view('client.cart.cart');
-        })->name('cart');
+        // Route::get('cart', function () {
+        //     return view('client.cart.cart');
+        // })->name('cart');
+        Route::get('cart', [CartController::class, 'gh'])->name('cart');
 
         Route::get('checkout', function () {
             return view('client.cart.checkout');
@@ -92,17 +131,17 @@ Route::prefix('shop')->name('client.')->group(function () {
             return view('client.contact.contact-us');
         })->name('contact-us');
 
-        Route::get('all-product', function () {
-            return view('client.shop.shop');
-        })->name('all-product');
+        Route::get('all-product', [ProductController::class, 'getAll'])->name('all-product');
+        Route::get('search', [SearchController::class, 'search'])->name('search');
+        Route::get('add_to_cart/{id}', [SearchController::class, 'get_add_to_cart'])->name('get_add_to_cart');
+        Route::get('category/{id}', [ProductController::class, 'viewCategory'])->name('category');
+        Route::get('product-detail/{id}', [ProductController::class, 'getOne'])->name('product-detail');
 
-        Route::get('product-detail', function () {
-            return view('client.shop.shop-detail');
-        })->name('product-detail');
+        Route::get('wishlist', [WishlistController::class, 'list'])->name('wishlist');
 
-        Route::get('wishlist', function () {
-            return view('client.wishlist.wishlist');
-        })->name('wishlist');
+        Route::get('add_wishlist/{id}', [SearchController::class, 'add_wishlist'])->name('add_wishlist');
+        Route::get('del_wishlist/{id}', [SearchController::class, 'del_wishlist'])->name('del_wishlist');
+
 
         Route::prefix('my-account')->group(function () {
             Route::get('/', function () {
@@ -112,7 +151,7 @@ Route::prefix('shop')->name('client.')->group(function () {
             Route::get('my-info', [ClientController::class, 'view'])->name('my-info');
             Route::post('my-info', [ClientController::class, 'edit']);
         });
-        route::get('forget-pass', function(){
+        route::get('forget-pass', function () {
             return view('client.my-account.forget-pass');
         });
     });

@@ -6,9 +6,6 @@
 					<div class="custom-select-box">
                         <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
 							<option>VND</option>
-                            <option>Order</option>
-							{{-- <option>$ USD</option> --}}
-							{{-- <option>€ EUR</option> --}}
 						</select>
                     </div>
                     <div class="right-phone-box">
@@ -32,29 +29,24 @@
                         <div id="offer-box" class="carouselTicker">
                             <ul class="offer-box">
                                 <li>
-                                    <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT80
+                                    <i class="fab fa-opencart"></i> Giá thành hợp lý
                                 </li>
                                 <li>
-                                    <i class="fab fa-opencart"></i> 50% - 80% off on Vegetables
+                                    <i class="fab fa-opencart"></i> Sản phẩm chất lượng
                                 </li>
                                 <li>
-                                    <i class="fab fa-opencart"></i> Off 10%! Shop Vegetables
+                                    <i class="fab fa-opencart"></i> Mặt hàng đa dạng
                                 </li>
                                 <li>
-                                    <i class="fab fa-opencart"></i> Off 50%! Shop Now
+                                    <i class="fab fa-opencart"></i> Mẫu mã dễ thương
                                 </li>
                                 <li>
-                                    <i class="fab fa-opencart"></i> Off 10%! Shop Vegetables
+                                    <i class="fab fa-opencart"></i> Hỗ trợ nhanh chóng
                                 </li>
                                 <li>
-                                    <i class="fab fa-opencart"></i> 50% - 80% off on Vegetables
+                                    <i class="fab fa-opencart"></i> Nhiều màu sắc lựa chọn
                                 </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT30
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> Off 50%! Shop Now 
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -87,7 +79,6 @@
                             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                             <ul class="dropdown-menu">
 								<li><a href="{{route('client.all-product')}}">Sidebar Shop</a></li>
-								<li><a href="{{route('client.product-detail')}}">Shop Detail</a></li>
                                 <li><a href="{{route('client.cart')}}">Cart</a></li>
                                 <li><a href="{{route('client.checkout')}}">Checkout</a></li>
                                 <li><a href="{{route('client.my-account')}}">My Account</a></li>
@@ -103,10 +94,14 @@
                 <!-- Start Atribute Navigation -->
                 <div class="attr-nav">
                     <ul>
-                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                        {{-- <li class="search"><a href="#"><i class="fa fa-search"></i></a></li> --}}
                         <li class="side-menu"><a href="#">
 						<i class="fa fa-shopping-bag"></i>
-                            <span class="badge">3</span>
+                        @if(isset($GioHang_float))
+                            <span id="cart_count" class="badge">{{$GioHang_float->SoLuong}}</span>
+                        @else
+                            <span id="cart_count" class="badge">0</span>
+                        @endif
 							<p>My Cart</p>
 					</a></li>
                     </ul>
@@ -118,24 +113,22 @@
                 <a href="#" class="close-side"><i class="fa fa-times"></i></a>
                 <li class="cart-box">
                     <ul class="cart-list">
-                        <li>
-                            <a href="#" class="photo"><img src="/template/client/images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Delica omtantur </a></h6>
-                            <p>1x - <span class="price">$80.00</span></p>
+                        @if(isset($GioHangCT_floats))
+                        @foreach ($GioHangCT_floats as $GioHangCT_float)
+                        <li class="product-list" id="{{$GioHangCT_float->GioHangChiTietID}}">
+                            <a href="#" class="photo"><img src="{{'/template/admin/images/SanPhamBellezza/SanPham/'.$GioHangCT_float->HinhAnh}}" class="cart-thumb" alt="" /></a>
+                            <h6><a href="/shop/product-detail/{{$GioHangCT_float->SanPhamID}}">{{$GioHangCT_float->SanPhamTen}}</a></h6>
+                            <p>{{$GioHangCT_float->SoLuong}}x - <span class="price">{{$GioHangCT_float->ThanhTien}}</span></p>
                         </li>
-                        <li>
-                            <a href="#" class="photo"><img src="/template/client/images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Omnes ocurreret</a></h6>
-                            <p>1x - <span class="price">$60.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="/template/client/images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Agam facilisis</a></h6>
-                            <p>1x - <span class="price">$40.00</span></p>
-                        </li>
+                        @endforeach
+                        @endif
                         <li class="total">
-                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                            <span class="float-right"><strong>Total</strong>: $180.00</span>
+                            <a href="{{route('client.cart')}}" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            @if(isset($GioHang_float))
+                            <span id="cart_money" class="float-right"><strong>Total</strong>: {{$GioHang_float->TongTien}}</span>
+                            @else 
+                            <span id="cart_money" class="float-right"><strong>Total</strong>: 0</span>
+                            @endif
                         </li>
                     </ul>
                 </li>

@@ -7,7 +7,7 @@
             <div class="row">
 				<div class="col-lg-6">
                     {{-- <div class="banner-frame"> <img class="img-fluid" src="/template/client/images/about-img.jpg" alt="" /> --}}
-                        <div class="banner-frame"> <img class="img-fluid" src="/template/admin/images/Home_img/BG_Aboutus.png" alt="" />
+                        <div class="banner-frame"> <img class="img-fluid" src="/template/admin/images/SanPhamBellezza/Home/BG_Aboutus.png" alt="" />
                     </div>
                 </div>
                 <div class="col-lg-6">
