@@ -159,6 +159,6 @@ class SearchController extends Controller
 
     public function del_wishlist(Request $request)
     {
-        return response()->json(['status' => 'Tạo xong wishlist']);
+        // return response()->json(['status' => 'Tạo xong wishlist']);
     }
 }

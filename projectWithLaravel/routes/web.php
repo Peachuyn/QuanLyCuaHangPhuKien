@@ -7,6 +7,7 @@ use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Admin\SupplierController;
 use \App\Http\Controllers\Admin\OrderManagementController;
 use \App\Http\Controllers\Admin\CustomerController;
+use \App\Http\Controllers\Admin\StatisticController;
 
 use \App\Http\Controllers\Admin\NhanVienController;
 
@@ -87,6 +88,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::delete('destroy', [SupplierController::class, 'destroy']);
             Route::get('search', [SupplierController::class, 'search']);
         });
+        #ThongKe
+        Route::prefix('statistics')->name('statistic.')->group(function () {
+            Route::get('cost', [StatisticController::class, 'listcost'])->name('cost');
+            Route::get('revenue', [StatisticController::class, 'listrevenue'])->name('revenue');
+            Route::get('thongke', [StatisticController::class, 'thongke']);
+            Route::get('thongkecp', [StatisticController::class, 'thongkecp']);
+        });
         #DonHang
         Route::prefix('orders')->name('order.')->group(function () {
             Route::get('list', [OrderManagementController::class, 'index'])->name('list');
@@ -156,9 +164,9 @@ Route::prefix('shop')->name('client.')->group(function () {
             Route::get('my-order', [OrderController::class, 'index'])->name('my-order');
             Route::get('my-info', [ClientController::class, 'view'])->name('my-info');
             Route::post('my-info', [ClientController::class, 'edit']);
-        }) ;
+        });
         route::get('forget-pass', function () {
             return view('client.my-account.forget-pass');
         });
-     });
+    });
 });

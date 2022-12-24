@@ -27,6 +27,10 @@ class CartController extends Controller
                 ->select('giohang_chitiet.*', 'sanpham.SanPhamTen', 'sanpham.HinhAnh', 'sanpham.Gia')
                 ->where('GioHangID', $giohangID->GioHangID)
                 ->get();
+            // $products = DB::table('giohang_chitiet')
+            //     ->select(DB::raw('sum(ThanhTien) as `TongTien`'), DB::raw('KhachHangID') 
+            //     ->groupby('KhachHangID')
+            //     ->get();
         } else {
             $products = array();
         }
