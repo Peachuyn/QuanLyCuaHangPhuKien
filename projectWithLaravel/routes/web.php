@@ -6,7 +6,10 @@ use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Admin\SupplierController;
 use \App\Http\Controllers\Admin\OrderManagementController;
+use \App\Http\Controllers\Admin\CustomerController;
+use \App\Http\Controllers\Admin\StatisticController;
 
+use \App\Http\Controllers\Admin\NhanVienController;
 
 use \App\Http\Controllers\Client\OrderController;
 use \App\Http\Controllers\Client\ClientController;
@@ -16,6 +19,8 @@ use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\GalleryController;
 use App\Http\Controllers\Client\WishlistController;
 use App\Http\Controllers\Client\CartController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +62,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::delete('destroy', [MenuController::class, 'destroy']);
         });
 
+        #NhanVien
+        Route::prefix('nhanvien')->name('nhanvien.')->group(function () {
+            Route::get('add', [NhanVienController::class, 'create']);
+            Route::post('add', [NhanVienController::class, 'store']);
+            // Route::post('add', [MenuController::class, 'store']);
+            Route::get('list', [NhanVienController::class, 'index'])->name('list');
+            Route::get('edit/{nhanvien}', [NhanVienController::class, 'show']);
+            Route::post('edit/{nhanvien}', [NhanVienController::class, 'update']);
+            Route::delete('destroy', [NhanVienController::class, 'destroy']);
+            Route::get('search', [NhanVienController::class, 'search']);
+        });
         #Product
         Route::prefix('products')->group(function () {
         });
@@ -72,11 +88,26 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::delete('destroy', [SupplierController::class, 'destroy']);
             Route::get('search', [SupplierController::class, 'search']);
         });
+        #ThongKe
+        Route::prefix('statistics')->name('statistic.')->group(function () {
+            Route::get('cost', [StatisticController::class, 'listcost'])->name('cost');
+            Route::get('revenue', [StatisticController::class, 'listrevenue'])->name('revenue');
+            Route::get('thongke', [StatisticController::class, 'thongke']);
+            Route::get('thongkecp', [StatisticController::class, 'thongkecp']);
+        });
         #DonHang
         Route::prefix('orders')->name('order.')->group(function () {
             Route::get('list', [OrderManagementController::class, 'index'])->name('list');
             Route::get('edit/{supplier}', [OrderManagementController::class, 'show']);
             Route::post('edit/{supplier}', [OrderManagementController::class, 'update']);
+        });
+
+        #KhachHang
+        Route::prefix('customer')->name('customer.')->group(function () {
+            Route::get('list', [CustomerController::class, 'index'])->name('list');
+            Route::get('edit/{customer}', [CustomerController::class, 'show']);
+            Route::post('edit/{customer}', [CustomerController::class, 'update']);
+            Route::get('search', [CustomerController::class, 'search']);
         });
     });
 });

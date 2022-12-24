@@ -58,6 +58,7 @@
         <div class="row my-5">
             <div class="col-lg-8 col-sm-12"></div>
             <div class="col-lg-4 col-sm-12">
+                @foreach($products as $product)
                 <div class="order-box">
                     <h3>Order summary</h3>
                     <div class="d-flex">
@@ -75,6 +76,7 @@
                     </div>
                     <hr>
                 </div>
+                @endforeach
             </div>
             <div class="col-12 d-flex shopping-box"><a href="{{route('client.checkout')}}" class="ml-auto btn hvr-hover">Checkout</a> </div>
         </div>

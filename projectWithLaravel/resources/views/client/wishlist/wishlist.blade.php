@@ -40,7 +40,7 @@
                                     <a onclick="DelWishlist({{$product->SanPhamID}})" href="javascript:">
                                         <i class="fas fa-times"></i>
                                     </a>
-                                </td>
+                                </td> -->
                             </tr>
                             @endforeach
 
