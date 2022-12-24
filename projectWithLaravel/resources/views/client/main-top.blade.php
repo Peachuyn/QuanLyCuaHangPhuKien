@@ -11,13 +11,13 @@
                     <div class="right-phone-box">
                         <p>Call US :- <a href="#"> 058 955 9343</a></p>
                     </div>
-                    <div class="our-link">
+                    {{-- <div class="our-link">
                         <ul>
                             <li><a href="#"><i class="fa fa-user s_color"></i> My Account</a></li>
                             <li><a href="#"><i class="fas fa-location-arrow"></i> Our location</a></li>
                             <li><a href="#"><i class="fas fa-headset"></i> Contact Us</a></li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<div class="login-box" style="background:#af9ad5; text-align:center;">
