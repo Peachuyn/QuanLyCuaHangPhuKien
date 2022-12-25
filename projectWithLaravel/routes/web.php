@@ -6,6 +6,7 @@ use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
 use \App\Http\Controllers\Admin\SupplierController;
 use \App\Http\Controllers\Admin\OrderManagementController;
+use \App\Http\Controllers\Admin\ProductManagementController;
 use \App\Http\Controllers\Admin\CustomerController;
 use \App\Http\Controllers\Admin\StatisticController;
 
@@ -74,7 +75,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('search', [NhanVienController::class, 'search']);
         });
         #Product
-        Route::prefix('products')->group(function () {
+        Route::prefix('products')->name('product.')->group(function () {
+            Route::get('add', [ProductManagementController::class, 'create']);
+            Route::post('add', [ProductManagementController::class, 'store']);
+            Route::get('edit/{product}', [ProductManagementController::class, 'show']);
+            Route::post('edit/{product}', [ProductManagementController::class, 'update']);
+            Route::get('list', [ProductManagementController::class, 'index'])->name('list');
+            Route::delete('destroy', [ProductManagementController::class, 'destroy']);
+            Route::get('search', [ProductManagementController::class, 'search']);
         });
 
         #NhaCungCap
