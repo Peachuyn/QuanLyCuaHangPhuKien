@@ -37,7 +37,7 @@
                 <textarea name="content" id="content" class="form-control" cols="30" rows="5">{{$menu->content}}</textarea>
             </div>
 
-            <div class="form-group">
+            <div class="form-group d-none">
                 <label for="">Kích hoạt</label>
                 <div class="custom-control custom-radio">
                     <input class="custom-control-input" value="1" type="radio" id="active"
@@ -55,7 +55,7 @@
         <!-- /.card-body -->
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Tạo danh mục</button>
+            <button type="submit" class="btn btn-primary">Chỉnh sửa danh mục</button>
         </div>
         @csrf
 

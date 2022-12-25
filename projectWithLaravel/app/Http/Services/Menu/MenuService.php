@@ -38,10 +38,14 @@ class MenuService
 
     public function update($request, $menu): bool
     {
-        $menu->fill($request->input());
-        $menu->save();
-
-        Session::flash('success', 'Cập nhật thành công Danh mục');
+        try {
+            $menu->fill($request->input());
+            $menu->save();
+            Session::flash('success', 'Cập nhật thành công Danh mục');
+        } catch (\Exception $err) {
+            Session::flash('error', $err->getMessage());
+            return false;
+        }
         return true;
     }
 
