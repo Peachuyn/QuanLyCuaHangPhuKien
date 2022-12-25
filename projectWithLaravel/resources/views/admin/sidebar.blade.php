@@ -1,5 +1,5 @@
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4 side-bar-menu" style='background-color: #7572a6 ; font: #fcf8fc' >
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 side-bar-menu" style='background-color: #7572a6 ' >
       <!-- Brand Logo -->
       <a href="/admin" class="brand-link">
         <img src="/template/admin/dist/img/AdminLTELogo.png" alt="Admin Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
