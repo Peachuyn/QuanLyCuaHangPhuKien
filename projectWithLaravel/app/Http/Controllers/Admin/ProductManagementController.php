@@ -90,7 +90,7 @@ class ProductManagementController extends Controller
         $product = array();
         $product['SanPhamTen'] = $request->name;
         $product['ChatLieuID'] = $request->chatlieu;
-        $product['MoTa'] = $request->mota;
+        $product['MoTa'] = (string)$request->input('mota');
         $product['Gia'] = $request->gia;
         $product['SoLuong'] = $request->soluong;
         if (isset($request->hinhanh)) {
