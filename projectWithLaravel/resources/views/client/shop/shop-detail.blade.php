@@ -8,9 +8,13 @@
                 <div class="col-xl-5 col-lg-5 col-md-6">
                     <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
                         <div class="carousel-inner" role="listbox">
+                            @empty($product_images)
                             @foreach($product_images as $image)
                             <div class="carousel-item <?php if($flag==0){echo 'active'; $flag=1;}?>"> <img class="d-block w-100" src="{{'/template/admin/images/SanPhamBellezza/SanPham/'.$image->link}}" alt="First slide"> </div>
                             @endforeach
+                            @else
+                            <div class="carousel-item active"> <img class="d-block w-100" src="{{'/template/admin/images/SanPhamBellezza/SanPham/'.$product->HinhAnh}}" alt="First slide"> </div>
+                            @endempty
                         </div>
                         <a class="carousel-control-prev" href="#carousel-example-1" role="button" data-slide="prev"> 
 						<i class="fa fa-angle-left" aria-hidden="true"></i>

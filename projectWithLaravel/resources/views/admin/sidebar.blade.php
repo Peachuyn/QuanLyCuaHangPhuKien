@@ -14,7 +14,7 @@
             <img src="/template/admin/dist/img/actress.png" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">admin</a>
+            <a href="#" class="d-block">ADMIN</a>
           </div>
         </div>
         <!-- SidebarSearch Form -->
