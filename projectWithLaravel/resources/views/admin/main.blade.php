@@ -16,8 +16,12 @@
       </ul>
 
       <!-- Right navbar links -->
+      
       <ul class="navbar-nav ml-auto">
-
+        <div class="login-box d-flex align-items-center" style="width:auto;">
+          <a class="text-dark " href="{{route('admin.logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+          <form action="{{route('admin.logout')}}" id="logout-form" method="post">@csrf</form>
+        </div>
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>

@@ -13,9 +13,21 @@
           <div class="image">
             <img src="/template/admin/dist/img/actress.png" class="img-circle elevation-2" alt="User Image">
           </div>
+          @can('isQuanLy')
           <div class="info">
-            <a href="#" class="d-block">ADMIN</a>
+            <a href="#" class="d-block">QUẢN LÝ</a>
           </div>
+          @endcan
+          @can('isKho')
+          <div class="info">
+            <a href="#" class="d-block">NHÂN VIÊN KHO</a>
+          </div>
+          @endcan
+          @can('isBanHang')
+          <div class="info">
+            <a href="#" class="d-block">NHÂN VIÊN BÁN HÀNG</a>
+          </div>
+          @endcan
         </div>
         <!-- SidebarSearch Form -->
         <div class="form-inline">
@@ -34,7 +46,8 @@
             <!-- Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library -->
             
-            {{-- Sanpham --}}
+            {{-- Sản phẩm --}}
+            @can('isKho')
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -58,6 +71,11 @@
                 </li>
               </ul>
             </li>
+            @endcan
+            {{-- Sản phẩm --}}
+
+            {{-- Nhân viên --}}
+            @can('isQuanLy')
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -81,6 +99,11 @@
                 </li>
               </ul>
             </li>
+            @endcan
+            {{-- Nhân viên --}}
+
+            {{-- Nhà cung cấp --}}
+            @cannot('isBanHang')
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -104,7 +127,11 @@
                 </li>
               </ul>
             </li>
-            <!-- khach hang -->
+            @endcan
+            {{-- Nhà cung cấp --}}
+
+            <!-- Khách hàng -->
+            @can('isBanHang')
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -122,6 +149,11 @@
                 </li>
               </ul>
             </li>
+            @endcan
+            <!-- Khách hàng -->
+
+            {{-- Danh mục --}}
+            @can('isQuanLy')
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -145,7 +177,11 @@
                 </li>
               </ul>
             </li>
+            @endcan
+            {{-- Danh mục --}}
+
             {{-- Đơn hàng --}}
+            @cannot('isQuanLy')
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -163,7 +199,11 @@
                 </li>
               </ul>
             </li>
+            @endcan
+            {{-- Đơn hàng --}}
+
             <!-- Thống kê (statistic) -->
+            @cannot('isKho')
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -187,6 +227,8 @@
                 </li>
               </ul>
             </li>
+            @endcan
+            <!-- Thống kê (statistic) -->
 
           </ul>
           </li>

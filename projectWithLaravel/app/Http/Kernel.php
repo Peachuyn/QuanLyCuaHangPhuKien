@@ -55,6 +55,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'CheckProductQuantity' => \App\Http\Middleware\CheckProductQuantity::class,
+        'CheckRole' => \App\Http\Middleware\CheckRole::class,
         'PreventBackHistory' => \App\Http\Middleware\PreventBackHistory::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

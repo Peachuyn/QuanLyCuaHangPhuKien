@@ -47,76 +47,91 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
     Route::middleware(['auth:web', 'PreventBackHistory'])->group(function () {
 
+        Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
         Route::get('/', [MainController::class, 'index'])->name('home');
         Route::get('main', [MainController::class, 'index']);
 
 
         #Menu
-        Route::prefix('menus')->group(function () {
-            Route::get('add', [MenuController::class, 'create']);
-            Route::post('add', [MenuController::class, 'store']);
-            Route::get('list', [MenuController::class, 'index']);
-            Route::get('edit/{menu}', [MenuController::class, 'show']);
-            Route::post('edit/{menu}', [MenuController::class, 'update']);
+        Route::middleware('can:isQuanLy')->group(function () {
+            Route::prefix('menus')->group(function () {
+                Route::get('add', [MenuController::class, 'create'])->middleware('can:isQuanLy');
+                Route::post('add', [MenuController::class, 'store']);
+                Route::get('list', [MenuController::class, 'index']);
+                Route::get('edit/{menu}', [MenuController::class, 'show']);
+                Route::post('edit/{menu}', [MenuController::class, 'update']);
 
-            Route::delete('destroy', [MenuController::class, 'destroy']);
+                Route::delete('destroy', [MenuController::class, 'destroy']);
+            });
         });
 
         #NhanVien
-        Route::prefix('nhanvien')->name('nhanvien.')->group(function () {
-            Route::get('add', [NhanVienController::class, 'create']);
-            Route::post('add', [NhanVienController::class, 'store']);
-            // Route::post('add', [MenuController::class, 'store']);
-            Route::get('list', [NhanVienController::class, 'index'])->name('list');
-            Route::get('edit/{nhanvien}', [NhanVienController::class, 'show']);
-            Route::post('edit/{nhanvien}', [NhanVienController::class, 'update']);
-            Route::delete('destroy', [NhanVienController::class, 'destroy']);
-            Route::get('search', [NhanVienController::class, 'search']);
+        Route::middleware('can:isQuanLy')->group(function () {
+            Route::prefix('nhanvien')->name('nhanvien.')->group(function () {
+                Route::get('add', [NhanVienController::class, 'create']);
+                Route::post('add', [NhanVienController::class, 'store']);
+                // Route::post('add', [MenuController::class, 'store']);
+                Route::get('list', [NhanVienController::class, 'index'])->name('list');
+                Route::get('edit/{nhanvien}', [NhanVienController::class, 'show']);
+                Route::post('edit/{nhanvien}', [NhanVienController::class, 'update']);
+                Route::delete('destroy', [NhanVienController::class, 'destroy']);
+                Route::get('search', [NhanVienController::class, 'search']);
+            });
         });
+
         #Product
-        Route::prefix('products')->name('product.')->group(function () {
-            Route::get('add', [ProductManagementController::class, 'create']);
-            Route::post('add', [ProductManagementController::class, 'store']);
-            Route::get('edit/{product}', [ProductManagementController::class, 'show']);
-            Route::post('edit/{product}', [ProductManagementController::class, 'update']);
-            Route::get('list', [ProductManagementController::class, 'index'])->name('list');
-            Route::delete('destroy', [ProductManagementController::class, 'destroy']);
-            Route::get('search', [ProductManagementController::class, 'search']);
+        Route::middleware('can:isKho')->group(function () {
+            Route::prefix('products')->name('product.')->group(function () {
+                Route::get('add', [ProductManagementController::class, 'create']);
+                Route::post('add', [ProductManagementController::class, 'store']);
+                Route::get('edit/{product}', [ProductManagementController::class, 'show']);
+                Route::post('edit/{product}', [ProductManagementController::class, 'update']);
+                Route::get('list', [ProductManagementController::class, 'index'])->name('list');
+                Route::delete('destroy', [ProductManagementController::class, 'destroy']);
+                Route::get('search', [ProductManagementController::class, 'search']);
+            });
         });
 
         #NhaCungCap
-        Route::prefix('suppliers')->name('supplier.')->group(function () {
-            Route::get('add', [SupplierController::class, 'create']);
-            Route::post('add', [SupplierController::class, 'store']);
-            Route::get('list', [SupplierController::class, 'index'])->name('list');
-            Route::get('edit/{supplier}', [SupplierController::class, 'show']);
-            Route::post('edit/{supplier}', [SupplierController::class, 'update']);
+        Route::middleware(['can:isNotBanHang'])->group(function () {
+            Route::prefix('suppliers')->name('supplier.')->group(function () {
+                Route::get('add', [SupplierController::class, 'create']);
+                Route::post('add', [SupplierController::class, 'store']);
+                Route::get('list', [SupplierController::class, 'index'])->name('list');
+                Route::get('edit/{supplier}', [SupplierController::class, 'show']);
+                Route::post('edit/{supplier}', [SupplierController::class, 'update']);
 
-            Route::delete('destroy', [SupplierController::class, 'destroy']);
-            Route::get('search', [SupplierController::class, 'search']);
+                Route::delete('destroy', [SupplierController::class, 'destroy']);
+                Route::get('search', [SupplierController::class, 'search']);
+            });
         });
         #ThongKe
-        Route::prefix('statistics')->name('statistic.')->group(function () {
-            Route::get('cost', [StatisticController::class, 'listcost'])->name('cost');
-            Route::get('revenue', [StatisticController::class, 'listrevenue'])->name('revenue');
-            Route::get('thongke', [StatisticController::class, 'thongke']);
-            Route::get('thongkecp', [StatisticController::class, 'thongkecp']);
+        Route::middleware(['can:isNotKho'])->group(function () {
+            Route::prefix('statistics')->name('statistic.')->group(function () {
+                Route::get('cost', [StatisticController::class, 'listcost'])->name('cost');
+                Route::get('revenue', [StatisticController::class, 'listrevenue'])->name('revenue');
+                Route::get('thongke', [StatisticController::class, 'thongke']);
+                Route::get('thongkecp', [StatisticController::class, 'thongkecp']);
+            });
         });
         #DonHang
-        Route::prefix('orders')->name('order.')->group(function () {
-            Route::get('list', [OrderManagementController::class, 'index'])->name('list');
-            Route::get('edit/{supplier}', [OrderManagementController::class, 'show']);
-            Route::post('edit/{supplier}', [OrderManagementController::class, 'update']);
-            Route::get('search', [OrderManagementController::class, 'search']);
+        Route::middleware(['can:isNotQuanLy'])->group(function () {
+            Route::prefix('orders')->name('order.')->group(function () {
+                Route::get('list', [OrderManagementController::class, 'index'])->name('list');
+                Route::get('edit/{supplier}', [OrderManagementController::class, 'show']);
+                Route::post('edit/{supplier}', [OrderManagementController::class, 'update']);
+                Route::get('search', [OrderManagementController::class, 'search']);
+            });
         });
-
         #KhachHang
-        Route::prefix('customer')->name('customer.')->group(function () {
-            Route::get('list', [CustomerController::class, 'index'])->name('list');
-            Route::get('edit/{customer}', [CustomerController::class, 'show']);
-            Route::post('edit/{customer}', [CustomerController::class, 'update']);
-            Route::get('search', [CustomerController::class, 'search']);
+        Route::middleware(['can:isBanHang'])->group(function () {
+            Route::prefix('customer')->name('customer.')->group(function () {
+                Route::get('list', [CustomerController::class, 'index'])->name('list');
+                Route::get('edit/{customer}', [CustomerController::class, 'show']);
+                Route::post('edit/{customer}', [CustomerController::class, 'update']);
+                Route::get('search', [CustomerController::class, 'search']);
+            });
         });
     });
 });
