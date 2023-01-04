@@ -28,6 +28,11 @@
             <a href="#" class="d-block">NHÂN VIÊN BÁN HÀNG</a>
           </div>
           @endcan
+          @can('isCSKH')
+          <div class="info">
+            <a href="#" class="d-block">NHÂN VIÊN CSKH</a>
+          </div>
+          @endcan
         </div>
         <!-- SidebarSearch Form -->
         <div class="form-inline">
@@ -103,7 +108,7 @@
             {{-- Nhân viên --}}
 
             {{-- Nhà cung cấp --}}
-            @cannot('isBanHang')
+            @if(Gate::check('isKho') || Gate::check('isQuanLy'))
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -127,11 +132,11 @@
                 </li>
               </ul>
             </li>
-            @endcan
+            @endif
             {{-- Nhà cung cấp --}}
 
             <!-- Khách hàng -->
-            @can('isBanHang')
+            @if(Gate::check('isBanHang') || Gate::check('isCSKH'))
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -149,7 +154,7 @@
                 </li>
               </ul>
             </li>
-            @endcan
+            @endif
             <!-- Khách hàng -->
 
             {{-- Danh mục --}}
@@ -181,7 +186,7 @@
             {{-- Danh mục --}}
 
             {{-- Đơn hàng --}}
-            @cannot('isQuanLy')
+            @if(Gate::check('isBanHang') || Gate::check('isKho'))
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -199,11 +204,11 @@
                 </li>
               </ul>
             </li>
-            @endcan
+            @endif
             {{-- Đơn hàng --}}
 
             <!-- Thống kê (statistic) -->
-            @cannot('isKho')
+            @if(Gate::check('isBanHang') || Gate::check('isQuanLy'))
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -227,7 +232,7 @@
                 </li>
               </ul>
             </li>
-            @endcan
+            @endif
             <!-- Thống kê (statistic) -->
 
           </ul>

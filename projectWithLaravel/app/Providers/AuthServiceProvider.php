@@ -55,5 +55,9 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+
+        Gate::define('isCSKH', function ($user) {
+            return $user->role == 3;
+        });
     }
 }
