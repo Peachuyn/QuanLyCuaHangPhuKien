@@ -37,20 +37,28 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isBanHang', function ($user) {
             return $user->role == 2;
         });
-        Gate::define('isNotBanHang', function ($user) {
-            if ($user->role !== 2) {
+
+        Gate::define('isBanHangAndCSKH', function ($user) {
+            if ($user->role == 2 || $user->role == 3) {
                 return true;
             }
             return false;
         });
-        Gate::define('isNotQuanLy', function ($user) {
-            if ($user->role !== 0) {
+
+        Gate::define('isKhoAndQuanLy', function ($user) {
+            if ($user->role == 0 || $user->role == 1) {
                 return true;
             }
             return false;
         });
-        Gate::define('isNotKho', function ($user) {
-            if ($user->role !== 1) {
+        Gate::define('isKhoAndBanHang', function ($user) {
+            if ($user->role == 1 || $user->role == 2) {
+                return true;
+            }
+            return false;
+        });
+        Gate::define('isQuanLyAndBanHang', function ($user) {
+            if ($user->role == 0 || $user->role == 2) {
                 return true;
             }
             return false;

@@ -94,7 +94,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
 
         #NhaCungCap
-        Route::middleware(['can:isNotBanHang'])->group(function () {
+        Route::middleware(['can:isKhoAndQuanLy'])->group(function () {
             Route::prefix('suppliers')->name('supplier.')->group(function () {
                 Route::get('add', [SupplierController::class, 'create']);
                 Route::post('add', [SupplierController::class, 'store']);
@@ -107,7 +107,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             });
         });
         #ThongKe
-        Route::middleware(['can:isNotKho'])->group(function () {
+        Route::middleware(['can:isQuanLyAndBanHang'])->group(function () {
             Route::prefix('statistics')->name('statistic.')->group(function () {
                 Route::get('cost', [StatisticController::class, 'listcost'])->name('cost');
                 Route::get('revenue', [StatisticController::class, 'listrevenue'])->name('revenue');
@@ -116,7 +116,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             });
         });
         #DonHang
-        Route::middleware(['can:isNotQuanLy'])->group(function () {
+        Route::middleware(['can:isKhoAndBanHang'])->group(function () {
             Route::prefix('orders')->name('order.')->group(function () {
                 Route::get('list', [OrderManagementController::class, 'index'])->name('list');
                 Route::get('edit/{supplier}', [OrderManagementController::class, 'show']);
@@ -125,7 +125,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             });
         });
         #KhachHang
-        Route::middleware(['can:isBanHang'])->group(function () {
+        Route::middleware(['can:isBanHangAndCSKH'])->group(function () {
             Route::prefix('customer')->name('customer.')->group(function () {
                 Route::get('list', [CustomerController::class, 'index'])->name('list');
                 Route::get('edit/{customer}', [CustomerController::class, 'show']);
