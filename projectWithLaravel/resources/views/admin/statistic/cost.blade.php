@@ -24,8 +24,8 @@
           </div>
           
 </div>
-
-<div class="card-body">
+<!--Sơ đồ đường-->
+<!-- <div class="card-body">
         <div id="bar-chart" style="height: 300px; padding: 0px; position: relative;">
                 <canvas class="flot-base" width="439" height="375" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 351.2px; height: 300px;">
                 </canvas>
@@ -50,7 +50,7 @@
                 </svg>
             </div>
         </div>
-              </div>
+              </div> -->
 
 <!-- bảng  -->
 <div class="row">
