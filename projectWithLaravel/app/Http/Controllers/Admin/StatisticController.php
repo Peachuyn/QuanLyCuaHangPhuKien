@@ -18,9 +18,12 @@ class StatisticController extends Controller
             ->groupby('year', 'month')
             ->get();
 
+        
         return view('admin.statistic.cost', [
             'title' => 'Thống kê doanh thu',
             'donhangs' => $donhangs,
+            'donhang_count' =>  DB:: table ('donhang')->count(),
+            'doanhthu_sum' => DB:: table ('donhang')->sum('TongTien'),
         ]);
     }
     public function listrevenue()
@@ -40,6 +43,7 @@ class StatisticController extends Controller
     {
         $month = $request->input('month');
         $year = $request->input('year');
+
         $donhangs = DB::table('donhang')->select(DB::raw('sum(TongTien) as `TongTien`'), DB::raw('MONTH(ThoiGianTao) month, YEAR(ThoiGianTao) year'))
             ->whereYear('ThoiGianTao', '=', $year)
             ->whereMonth('ThoiGianTao', '=', $month)
@@ -52,7 +56,7 @@ class StatisticController extends Controller
             <td>$donhang->year</td>
             <td>$donhang->TongTien</td>
         </tr>";
-        }
+        }        
         return response()->json($result);
     }
 
