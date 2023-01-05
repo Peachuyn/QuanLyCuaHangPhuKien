@@ -7,15 +7,6 @@
         <label for="menu">Tên Nhân viên</label>
         <input type="text" name="name" class="form-control" id="menu" placeholder="Nhập tên nhân viên">
       </div>
-      {{-- <div class="form-group">
-        <label for="menu">Chức vụ</label>
-        
-        <select class="custom-select rounded-0" id="exampleSelectRounded0" name = "chucvu">
-            <option value = "1">Quản lý</option>
-            <option value = "0">Nhân viên</option>
-           
-          </select>
-      </div> --}}
       <div>
         <label for="menu" >Chức vụ</label>
         <select class="form-control" name ="chucvu" >
@@ -29,7 +20,6 @@
           <option value = "1">Nữ</option>
           <option value = "0">Nam</option>
         </select>
-        {{-- <input type="text" name="name" class="form-control" id="menu" placeholder="Nhập giới tính"> --}}
       </div>
       <div class="form-group">
         <label for="menu">Mật khẩu</label>
@@ -47,10 +37,7 @@
         <label for="menu">Địa chỉ</label>
         <input type="text" name="diachi" class="form-control" id="menu" placeholder="Nhập địa chỉ">
       </div>
-      {{-- <div class="form-group">
-        <label for="menu">Tên ngành hàng</label>
-        <input type="text" name="nganhhang" class="form-control" id="menu" placeholder="Nhập Tên ngành hàng">
-      </div> --}}
+  
 
     </div>
     <!-- /.card-body -->

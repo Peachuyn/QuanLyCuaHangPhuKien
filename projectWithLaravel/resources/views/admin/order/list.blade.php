@@ -59,7 +59,7 @@
                   <div class="progress progress-sm">
                     <div class="progress-bar bg-green" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                     </div>
-                  </div>
+                  </div> 
                   <small>
                     100% Complete
                 </small>
@@ -88,6 +88,9 @@
                     <a class="btn btn-primary btn-sm" href="/admin/orders/edit/{{$order->DonHangID}}">
                         <i class="fas fa-edit"></i>
                     </a>
+                    {{-- DANG LAM PDF --}}
+
+                    <a href="{{url('/print/'.$order->DonHangID) }}">In đơn hàng</a>
                 </td>
               </tr>
               @endforeach

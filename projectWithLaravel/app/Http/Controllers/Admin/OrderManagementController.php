@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class OrderManagementController extends Controller
 {
@@ -127,5 +128,16 @@ class OrderManagementController extends Controller
           </tr>";
         };
         return response()->json($result);
+    }
+    // DANG LAM PDF
+    public function print($checkout_code)
+    {
+        $pdf = \App::make(dompdf.wrapper);
+        $pdf -> loadHTML($this->print_order_convert(checkout_code));
+        return $pdf->stream();
+    }
+    public function print_order_convert($checkout_code)
+    {
+        return $checkout_code;
     }
 }
