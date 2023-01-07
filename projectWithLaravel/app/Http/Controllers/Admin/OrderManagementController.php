@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
+use PDF;
+// mysqli_set_charset($con,"utf8");
 class OrderManagementController extends Controller
 {
     public function index()
@@ -128,4 +129,67 @@ class OrderManagementController extends Controller
         };
         return response()->json($result);
     }
+    // DANG LAM PDF
+    public function print($checkout_code)
+    {
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf -> loadHTML($this->print_order_convert($checkout_code));
+        return $pdf->stream();
+    }
+    public function print_order_convert($checkout_code)
+    {
+        $customerid=DB::table('donhang')->where('DonHangID',$checkout_code)->first(); 
+        $customer=DB::table('khachhang')->where('id',$customerid->KhachHangID)->first();
+        $products=DB::table('chitiet_donhang')->join('sanpham','chitiet_donhang.SanPhamID','sanpham.SanPhamID')->select('chitiet_donhang.*','sanpham.SanPhamTen','sanpham.Gia')->where('DonHangID',$checkout_code)->get();
+
+        $chitietdonhang = '';
+        foreach($products as $product){
+            $chitietdonhang.= '<tr>
+            <th>'.$product->SanPhamTen.'</th>
+            <th>'.$customerid->GiaShip.'</th>
+            <th>'.$product->SoLuong.'</th>
+            <th>'.$product->Gia.'</th>
+            <th>'.$product->Gia*$product->SoLuong.'</th>
+        </tr>';
+
+        };
+        return '<table border="1">
+        
+            <tr>
+                <th>Customer name </th>
+                <th> Address</th>
+                <th>Phonenumber</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+                <td>'.$customer->TenKhachHang.'</td>
+                <td>'.$customer->DiaChi.'</td>
+                <td>'.$customer->SoDienThoai.'</td>
+                <td>'.$customer->email.'</td>
+            </tr>
+       
+    </table>
+    <p>Your order list</p>
+    <table border="1">
+        <tr>
+            <th>Product name</th>
+            <th>Shipping fee</th>
+            <th>Quantity</th>
+            <th>Product price</th>
+            <th>Amount</th>
+        </tr>
+        
+        '.$chitietdonhang.'
+        <tr>
+            <td colspan="2">
+                <p>Shipping fee:'.$customerid->GiaShip.'</p>
+                <p>Total: '.$customerid->TongTien.'</p>
+            </td>
+            
+        </tr>
+    
+    </table>';
+
+    }
 }
+ 

@@ -115,6 +115,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
                 Route::get('thongkecp', [StatisticController::class, 'thongkecp']);
             });
         });
+       
         #DonHang
         Route::middleware(['can:isKhoAndBanHang'])->group(function () {
             Route::prefix('orders')->name('order.')->group(function () {
@@ -122,8 +123,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
                 Route::get('edit/{supplier}', [OrderManagementController::class, 'show']);
                 Route::post('edit/{supplier}', [OrderManagementController::class, 'update']);
                 Route::get('search', [OrderManagementController::class, 'search']);
+                 //DANG LAM PDF
+                 Route::get('print/{checkout_code}', [OrderManagementController::class, 'print']);
             });
         });
+        
         #KhachHang
         Route::middleware(['can:isBanHangAndCSKH'])->group(function () {
             Route::prefix('customer')->name('customer.')->group(function () {

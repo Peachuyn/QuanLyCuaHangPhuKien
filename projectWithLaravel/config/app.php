@@ -174,6 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // DANG LAM PDF
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -229,6 +231,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        // DANG LAM PDF
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 
