@@ -12,6 +12,7 @@ use PDF;
 // mysqli_set_charset($con,"utf8");
 class OrderManagementController extends Controller
 {
+    
     public function index()
     {
         $orders = DB::table('donhang')
@@ -153,8 +154,10 @@ class OrderManagementController extends Controller
         </tr>';
 
         };
-        return '<table border="1">
-        
+        return '
+        <h1><center>BILL OF SALE</center></h1>
+        <table border="1">
+
             <tr>
                 <th>Customer name </th>
                 <th> Address</th>
@@ -181,14 +184,24 @@ class OrderManagementController extends Controller
         
         '.$chitietdonhang.'
         <tr>
-            <td colspan="2">
+            <td colspan="5">
                 <p>Shipping fee:'.$customerid->GiaShip.'</p>
                 <p>Total: '.$customerid->TongTien.'</p>
             </td>
             
         </tr>
     
-    </table>';
+    </table>
+    <p>Sign</p>
+    <table>
+        <thead>
+            <tr>
+                <th width="200px">Invoice maker</th>
+                <th width="800px">Customer</th>
+            </tr>
+        </thead>
+    </table>
+    ';
 
     }
 }
