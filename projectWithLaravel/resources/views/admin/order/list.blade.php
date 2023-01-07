@@ -90,7 +90,7 @@
                     </a>
                     {{-- DANG LAM PDF --}}
 
-                    <a href="{{url('/print/'.$order->DonHangID) }}">In đơn hàng</a>
+                    <a target="_blank" href="{{url('/admin/orders/print/'.$order->DonHangID) }}">In đơn hàng</a>
                 </td>
               </tr>
               @endforeach

@@ -132,8 +132,8 @@ class OrderManagementController extends Controller
     // DANG LAM PDF
     public function print($checkout_code)
     {
-        $pdf = \App::make(dompdf.wrapper);
-        $pdf -> loadHTML($this->print_order_convert(checkout_code));
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf -> loadHTML($this->print_order_convert($checkout_code));
         return $pdf->stream();
     }
     public function print_order_convert($checkout_code)
@@ -141,3 +141,4 @@ class OrderManagementController extends Controller
         return $checkout_code;
     }
 }
+ 
