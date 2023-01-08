@@ -1,13 +1,14 @@
+<h1><center>HOA DON</center></h1>
 <table>
     <thead>
         <tr>
-            <th>Tên khách hàng </th>
+            <th><p></p></th>
             <th> Địa chỉ</th>
             <th>Số điện thoại</th>
             <th>Email</th>
         </tr>
         <tr>
-            <td>UIT</td>
+            <td><p></p></td>
             <td>UIT</td>
             <td>UIT</td>
             <td>UIT</td>
@@ -39,3 +40,15 @@
     </tr>
 
 </table>
+<tbody></tbody>
+<p>Ký tên</p>
+<table>
+    <thead>
+        <tr>
+            <th width="200px">Người lập phiếu</th>
+            <th width="800px">Người nhận</th>
+        </tr>
+    </thead>
+</table>
+
+<h5>Ký tên</h5>
